@@ -1,0 +1,61 @@
+{
+  "consumer_intent": {
+    "pain_high": [
+      "booked out", "fully booked", "sold out", "no availability", "last minute",
+      "where to rent", "too rough", "waves too rough", "red flag", "double red",
+      "scared", "danger", "unsafe", "crashed", "injured", "stranded", "stalled",
+      "got ripped off", "refund", "cancelled on us"
+    ],
+    "pain_medium": [
+      "jet ski rental", "jet ski price", "how much to rent", "worth it", "worth the money",
+      "first time", "no experience", "license needed", "boating license", "age requirement",
+      "how far out", "shell island trip", "dolphin tour price", "two hour", "half day"
+    ],
+    "signals_value": [
+      "family of", "group of", "bachelorette", "birthday", "spring break",
+      "vacation next week", "staying at", "resort", "condo", "july", "june", "memorial day",
+      "birthday party", "corporate event", "willing to pay", "premium"
+    ],
+    "group_size_multipliers": {
+      "1-2 riders": 1.0,
+      "3-4 riders": 1.2,
+      "5-8 riders": 1.5,
+      "large group": 2.0,
+      "corporate event": 2.0
+    }
+  },
+  "b2b_partner": {
+    "retailer_signals": [
+      "hotel", "resort", "condo rental", "vacation rental", "airbnb host",
+      "property management", "concierge", "tour agency", "visitor center"
+    ],
+    "service_signals": [
+      "charter", "fishing", "parasailing", "banana boat", "snorkel tour",
+      "boat tour", "activity provider", "watersports"
+    ],
+    "brand_signals": [
+      "tourism board", "visitor bureau", "booking platform", "ota", "experience marketplace",
+      "GetYourGuide", "Viator", "TripAdvisor"
+    ],
+    "partner_type_tags": {
+      "hotel": ["hotel", "resort", "condo"],
+      "rental_agency": ["vacation rental", "airbnb", "property management"],
+      "tour_operator": ["charter", "tour", "watersports"],
+      "platform": ["booking", "marketplace", "ota"],
+      "association": ["bureau", "board", "association"]
+    }
+  },
+  "investor": {
+    "thesis_tags": [
+      "travel", "tourism", "experiences", "marketplace", "outdoors", "recreation",
+      "local services", "field services", "seasonal ops", "ai agents"
+    ],
+    "stage_tags": [
+      "seed", "series a", "series b", "growth", "venture", "angel", "private equity"
+    ],
+    "portfolio_match_keywords": [
+      "travel", "experiences", "tours", "rentals", "outdoor", "hospitality",
+      "marketplace", "booking", "ai", "automation"
+    ]
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "routes": [
+    { "min": 80, "name": "priority_outreach", "action": "immediate_contact" },
+    { "min": 50, "name": "nurture", "action": "add_to_sequence" },
+    { "min": 0, "name": "archive", "action": "store_only" }
+  ],
+  "weights": {
+    "consumer_intent": {
+      "pain_high": 25,
+      "pain_medium": 12,
+      "signals_value": 15,
+      "group_size_bonus": 10,
+      "recent_post_bonus": 8,
+      "has_replies": 5,
+      "base_score": 25
+    },
+    "b2b_partner": {
+      "has_website": 20,
+      "has_contact_url": 15,
+      "has_phone": 10,
+      "retailer_signals": 15,
+      "service_signals": 12,
+      "brand_signals": 10,
+      "has_rating": 5,
+      "high_rating_bonus": 8,
+      "base_score": 15
+    },
+    "investor": {
+      "thesis_tags_match": 20,
+      "portfolio_match": 25,
+      "has_contact_url": 15,
+      "stage_match": 10,
+      "recent_investment": 10,
+      "base_score": 20
+    }
+  },
+  "outreach_templates": {
+    "consumer_intent": {
+      "priority_outreach": "Hi {name}, saw your post about {pain_point}. Star Jet Ski runs same-day bookings on brand-new Yamaha VX Deluxes in Panama City Beach — want me to hold you a slot today?",
+      "nurture": "Hey {name}, saw you're figuring out {pain_point}. Quick tip sheet from our crew if you want it — and we do same-day slots when you're ready."
+    },
+    "b2b_partner": {
+      "priority_outreach": "Hi {company_name}, Star Jet Ski offers guest perks and revenue share for hotels and rental agencies in PCB. Interested in a partner referral setup?",
+      "nurture": "Hello {company_name}, we'd love to be your go-to for guest water activities — same-day slots, 4.9/5 from 1,900+ riders. Want our partner one-pager?"
+    },
+    "investor": {
+      "priority_outreach": "Hi {partner_name}, Star Jet Ski is showing what an AI-booked rental operation looks like in beach tourism. Your thesis in {thesis_match} aligns well — open to a quick intro?",
+      "nurture": "Hello {firm_name}, Star Jet Ski is modernizing beach equipment rental with live AI agents. Happy to share our deck."
+    }
+  },
+  "cta_suggestions": {
+    "consumer_intent": [
+      "Hold same-day slot",
+      "Send requirements checklist (license/age)",
+      "Offer weather-protection guarantee",
+      "Send first-timer tips video"
+    ],
+    "b2b_partner": [
+      "Send partner one-pager",
+      "Offer concierge booking link",
+      "Schedule site visit to dock",
+      "Share guest review stats (4.9/5, 1,900+)"
+    ],
+    "investor": [
+      "Send pitch deck",
+      "Schedule intro call",
+      "Share booking automation metrics",
+      "Invite for a ride-along demo day"
+    ]
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "industry": "jetski_rental",
+  "disableOldIndustry": true,
+  "oldIndustryPatterns": ["skimmer", "reef", "aquarium", "ottomedic", "fence", "dolphin"],
+  "domains": {
+    "rateLimitMs": 2500,
+    "maxConcurrency": 2
+  },
+  "targets": [
+    {
+      "id": "jetski_reddit_intent",
+      "lead_type": "consumer_intent",
+      "adapter": "RedditAdapter",
+      "enabled": true,
+      "tier": "free",
+      "interval_minutes": 240,
+      "subreddits": ["jetskis", "PersonalWatercraft", "panamacitybeach"],
+      "queries": [
+        "jet ski rental",
+        "booked out",
+        "where to rent",
+        "waves too rough",
+        "PCB jet ski",
+        "panama city beach things to do",
+        "first time jet ski"
+      ],
+      "extract": {
+        "fields": ["title", "url", "date", "excerpt", "author", "subreddit"]
+      }
+    },
+    {
+      "id": "pwc_forum_intent",
+      "lead_type": "consumer_intent",
+      "adapter": "GenericForumAdapter",
+      "enabled": true,
+      "tier": "free",
+      "interval_minutes": 360,
+      "seedUrls": [
+        "https://www.greenhulk.net/search/?q={QUERY}",
+        "https://www.pwctoday.com/search.php?do=process&query={QUERY}"
+      ],
+      "queries": [
+        "rental fleet yamaha vx",
+        "jet ski rental business",
+        "tourist rider tips",
+        "vx deluxe rental",
+        "gulf riding conditions"
+      ],
+      "extract": {
+        "fields": ["title", "url", "date", "excerpt", "author", "replies"]
+      }
+    },
+    {
+      "id": "hotel_condo_partners",
+      "lead_type": "b2b_partner",
+      "adapter": "GenericDirectoryAdapter",
+      "enabled": true,
+      "tier": "low_cost",
+      "interval_minutes": 2880,
+      "seedUrls": [
+        "https://www.yelp.com/search?find_desc=hotels&find_loc={LOCATION}",
+        "https://www.google.com/maps/search/vacation+rental+agency+{LOCATION}"
+      ],
+      "locations": ["Panama City Beach, FL", "Destin, FL", "Panama City, FL"],
+      "extract": {
+        "fields": ["company_name", "website", "contact_url", "location", "phone", "rating", "reviews_count"]
+      }
+    },
+    {
+      "id": "tourism_directories",
+      "lead_type": "b2b_partner",
+      "adapter": "GenericDirectoryAdapter",
+      "enabled": true,
+      "tier": "free",
+      "interval_minutes": 10080,
+      "seedUrls": [
+        "https://www.visitpanamacitybeach.com/listings/",
+        "https://www.tripadvisor.com/Attractions-g34543-Activities-Panama_City_Beach_Florida.html"
+      ],
+      "extract": {
+        "fields": ["company_name", "website", "contact_url", "location", "category"]
+      }
+    },
+    {
+      "id": "investor_portfolios",
+      "lead_type": "investor",
+      "adapter": "GenericPortfolioAdapter",
+      "enabled": true,
+      "tier": "low_cost",
+      "interval_minutes": 10080,
+      "seedUrls": [
+        "https://www.crunchbase.com/search/organizations/field/organizations/categories/travel",
+        "https://www.crunchbase.com/search/organizations/field/organizations/categories/outdoors"
+      ],
+      "extract": {
+        "fields": ["firm_name", "partner_names", "thesis_excerpt", "contact_url", "portfolio_companies", "investment_stage"]
+      }
+    }
+  ]
+}

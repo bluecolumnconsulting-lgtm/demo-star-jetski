@@ -104,6 +104,23 @@ footer a{color:#cfe8f0;text-decoration:none}
 .bot-input input{border:none;border-radius:0;flex:1}
 .bot-input button{background:var(--sea);color:#fff;border:none;padding:0 18px;font-weight:700;cursor:pointer}
 
+/* Marina agent additions (live brain · dynamic voice · video avatar) — contained to the bot panel, page layout unchanged */
+.bot-ctl{background:none;border:none;cursor:pointer;font-size:1rem;color:#fff;padding:2px 4px;margin-left:4px;opacity:.85}
+.bot-ctl:hover{opacity:1}
+.bot-ctl.on{color:var(--sun);opacity:1}
+#bot-video-wrap{display:none;position:relative;background:#000}
+#bot-panel.video-mode #bot-video-wrap{display:block}
+#bot-video-el{width:100%;aspect-ratio:1/1;object-fit:cover;display:block}
+#bot-video-live{position:absolute;top:8px;left:8px;background:rgba(220,40,40,.9);color:#fff;font-size:.62rem;font-weight:800;padding:2px 8px;border-radius:999px;display:flex;align-items:center;gap:4px;letter-spacing:.5px}
+#bot-video-live i{width:6px;height:6px;border-radius:50%;background:#fff;display:inline-block;animation:vblink 1.2s infinite}
+@keyframes vblink{50%{opacity:.15}}
+#bot-avatar{display:inline-block;transform-origin:50% 88%}
+.bc-typing{display:flex;gap:3px;align-items:center}
+.bc-typing span{width:6px;height:6px;border-radius:50%;background:var(--muted);display:inline-block;animation:bdot 1s infinite}
+.bc-typing span:nth-child(2){animation-delay:.15s}
+.bc-typing span:nth-child(3){animation-delay:.3s}
+@keyframes bdot{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+
 @media(max-width:700px){
   nav.main ul{display:none}
   .topbar .wrap{flex-direction:column;gap:4px;font-size:.78rem;text-align:center}
@@ -273,13 +290,14 @@ footer a{color:#cfe8f0;text-decoration:none}
 </footer>
 
 <!-- StarBot -->
-<button id="bot-fab" onclick="toggleBot()">⭐ Ask StarBot</button>
+<button id="bot-fab">⭐ Ask StarBot</button>
 <div id="bot-panel" role="dialog" aria-label="StarBot chat">
-  <div class="bot-head"><div class="bot-avatar">⭐</div><div><b>StarBot</b><small>Bookings & answers · 24/7</small></div></div>
+  <div class="bot-head"><div class="bot-avatar" id="bot-avatar">⭐</div><div><b>StarBot</b><small>Bookings & answers · 24/7</small></div><button id="bot-mute" class="bot-ctl" style="margin-left:auto" title="Voice on">🔊</button><button id="bot-mic" class="bot-ctl" title="Talk hands-free">🎤</button><button id="bot-video" class="bot-ctl" title="Live video avatar">🎥</button></div>
+  <div id="bot-video-wrap" aria-hidden="true"><span id="bot-video-live"><i></i>LIVE</span><video id="bot-video-el" autoplay playsinline muted></video><audio id="bot-simli-audio" autoplay></audio></div>
   <div id="bot-log"></div>
   <div class="bot-input">
     <input id="bot-in" placeholder="Ask or book…" aria-label="Message StarBot">
-    <button onclick="botSend()">Send</button>
+    <button id="bot-send">Send</button>
   </div>
 </div>
 
@@ -294,40 +312,47 @@ document.getElementById('lead-form').addEventListener('submit',function(e){
   F('form-ok').style.display='block';e.target.reset();
 });
 
-/* StarBot — scripted demo brain with booking flow (swap live AI backend at launch) */
-const log=F('bot-log'),botIn=F('bot-in');
+/* StarBot — Marina-grade agent config: live BlueColumn brain, dynamic
+   ElevenLabs voice (Laura), Simli person avatar, one-voice guard.
+   The guided booking flow stays as a canned pre-hook; knowledge questions
+   go to the live brain first, canned intents are fallback only. */
+function saveLead(b){const leads=JSON.parse(localStorage.getItem('star_leads')||'[]');leads.push({...b,at:new Date().toISOString()});localStorage.setItem('star_leads',JSON.stringify(leads));}
 const booking={};
 let mode=null;
-function toggleBot(){const p=F('bot-panel');p.classList.toggle('open');
-  if(log.children.length===0){botSay("Hey! StarBot here ⭐ I can answer questions or get you booked — same-day slots welcome. What's up?");opts(["Book a jet ski","Pricing","What do I need?"])}}
-function el(t,cls){const d=document.createElement('div');d.className=cls;d.textContent=t;log.appendChild(d);log.scrollTop=log.scrollHeight;return d;}
-function botSay(t){el(t,'msg bot');}
-function opts(arr){const w=document.createElement('div');w.className='bot-opts';arr.forEach(a=>{const b=document.createElement('button');b.textContent=a;b.onclick=()=>botSend(a);w.appendChild(b)});log.appendChild(w);log.scrollTop=log.scrollHeight;}
-function botSend(txt){
-  txt=(txt||botIn.value).trim();if(!txt)return;
-  el(txt,'msg user');botIn.value='';
-  const low=txt.toLowerCase();
-  setTimeout(()=>{
-    if(mode==='book-name'){booking.name=txt;botSay("Great, "+txt.split(' ')[0]+" — what's the best phone number for your confirmation text?");mode='book-phone';return;}
-    if(mode==='book-phone'){booking.phone=txt;botSay("Locked in ⭐ Here's your request:\n• "+(booking.type||'Jet Ski Ride')+" · "+(booking.len||'1 hour')+"\n• "+(booking.time||'flexible time')+(booking.date?(" · "+booking.date):"")+"\n• "+txt+"\n\nStar confirms slots by text — usually within minutes during open hours (9–6). Want anything else?");saveLead(booking);mode=null;opts(["Pricing","What do I need?","No, I'm good"]);return;}
-    if(low.includes('book')||low.includes('reserve')||low.includes('rent')){botSay("Let's do it. What are you riding — Jet Ski Ride, Guided Tour, or Boat Tour?");mode=null;opts(["Jet Ski Ride","Guided Jet Ski Tour","Boat Tour"]);mode='book-type';return;}
-    if(mode==='book-type'){booking.type=txt;botSay(txt+" — solid pick. How long: 1 hour or 2?");mode='book-len';return;}
-    if(mode==='book-len'){booking.len=txt;botSay("Which day works? Type a date (like 'today', 'tomorrow', or 9/15) or say flexible.");mode='book-date';return;}
-    if(mode==='book-date'){booking.date=txt;botSay("And what time of day?");opts(["Morning (9–12)","Midday (12–3)","Afternoon (3–6)","Flexible"]);mode='book-time';return;}
-    if(mode==='book-time'){booking.time=txt;botSay("Last thing — what's your name?");mode='book-name';return;}
-    if(low.includes('price')||low.includes('cost')||low.includes('how much')){botSay("Jet ski sessions start at $150/hour — brand-new Yamaha VX Deluxe, safety gear included. Guided tours and boat tours are priced by the slot. Want me to start a booking?");opts(["Book a jet ski","What do I need?"]);return;}
-    if(low.includes('need')||low.includes('license')||low.includes('certifi')||low.includes('age')||low.includes('old')){botSay("To ride: 16+ with a valid ID. Born on or after Jan 1, 1988? Florida needs a Temporary Boating Certificate — 20 minutes online before you ride. Life jackets included, no experience needed.");opts(["Book a jet ski","Pricing"]);return;}
-    if(low.includes('island')){botSay("Yes — you can run the skis to the nearby island on open rides. It's the favorite run. Want it booked?");opts(["Book a jet ski"]);return;}
-    if(low.includes('weather')||low.includes('storm')||low.includes('rain')){botSay("Bad Weather Protection: if weather kills your slot, we rebook or refund. You're never stuck.");opts(["Book a jet ski"]);return;}
-    if(low.includes('speaker')||low.includes('music')||low.includes('bluetooth')){botSay("Yep — the Yamahas have Bluetooth speakers. Bring the playlist.");opts(["Book a jet ski"]);return;}
-    if(low.includes('phone')||low.includes('call')||low.includes('human')||low.includes('talk')){botSay("You can reach Star directly at 850.640.6093, daily 9am–6pm. Or leave your number here and they'll text you.");return;}
-    if(low.includes('thank')){botSay("Anytime ⭐ See you on the water!");return;}
-    if(low.includes('hello')||low.includes('hi')||low.includes('hey')){botSay("Hey! Ask me anything — pricing, requirements, the island run — or say 'book' and I'll get your slot started.");opts(["Book a jet ski","Pricing"]);return;}
-    botSay("I can help with pricing, requirements, or getting you booked. For anything else, Star's crew is at 850.640.6093 daily 9–6.");opts(["Book a jet ski","Pricing","What do I need?"]);
-  },420);
-}
-function saveLead(b){const leads=JSON.parse(localStorage.getItem('star_leads')||'[]');leads.push({...b,at:new Date().toISOString()});localStorage.setItem('star_leads',JSON.stringify(leads));}
-botIn.addEventListener('keydown',e=>{if(e.key==='Enter')botSend();});
+window.BOT_CFG={
+  name:'StarBot',
+  business:'Star Jet Ski Rentals',
+  brainPrefix:'Star Jet Ski Rentals customer question: ',
+  faceId:'5fc23ea5-8175-4a82-aaaf-cdd8c88543dc',
+  voiceId:'FGY2WhTYpPnrIDTdsKH5',
+  greeting:"Hey! StarBot here ⭐ I answer live — pricing, requirements, the island run — or say 'book' and I'll get your slot started. Tap 🎤 to talk hands-free, or 🎥 to see me on video.",
+  suggestions:['Book a jet ski','Pricing','What do I need?'],
+  placeholder:'Ask or book…',
+  pre:function(txt){
+    const low=txt.toLowerCase();
+    if(mode==='book-name'){booking.name=txt;mode='book-phone';return{t:"Great, "+txt.split(' ')[0]+" — what's the best phone number for your confirmation text?"};}
+    if(mode==='book-phone'){booking.phone=txt;mode=null;saveLead(booking);return{t:"Locked in ⭐ Here's your request:\n• "+(booking.type||'Jet Ski Ride')+" · "+(booking.len||'1 hour')+"\n• "+(booking.time||'flexible time')+(booking.date?(" · "+booking.date):"")+"\n• "+txt+"\n\nStar confirms slots by text — usually within minutes during open hours (9–6). Want anything else?",opts:["Pricing","What do I need?","No, I'm good"]};}
+    if(mode==='book-type'){booking.type=txt;mode='book-len';return{t:txt+" — solid pick. How long: 1 hour or 2?"};}
+    if(mode==='book-len'){booking.len=txt;mode='book-date';return{t:"Which day works? Type a date (like 'today', 'tomorrow', or 9/15) or say flexible."};}
+    if(mode==='book-date'){booking.date=txt;mode='book-time';return{t:"And what time of day?",opts:["Morning (9–12)","Midday (12–3)","Afternoon (3–6)","Flexible"]};}
+    if(mode==='book-time'){booking.time=txt;mode='book-name';return{t:"Last thing — what's your name?"};}
+    if(low.includes('book')||low.includes('reserve')||low.includes('rent')){mode='book-type';return{t:"Let's do it. What are you riding — Jet Ski Ride, Guided Tour, or Boat Tour?",opts:["Jet Ski Ride","Guided Jet Ski Tour","Boat Tour"]};}
+    return null;
+  },
+  intents:[
+    {k:['price','cost','how much'],t:"Jet ski sessions start at $150/hour — brand-new Yamaha VX Deluxe, safety gear included. Guided tours and boat tours are priced by the slot. Want me to start a booking?"},
+    {k:['need','license','certifi','age','old'],t:"To ride: 16+ with a valid ID. Born on or after Jan 1, 1988? Florida needs a Temporary Boating Certificate — 20 minutes online before you ride. Life jackets included, no experience needed."},
+    {k:['island'],t:"Yes — you can run the skis to the nearby island on open rides. It's the favorite run."},
+    {k:['weather','storm','rain'],t:"Bad Weather Protection: if weather kills your slot, we rebook or refund. You're never stuck."},
+    {k:['speaker','music','bluetooth'],t:"Yep — the Yamahas have Bluetooth speakers. Bring the playlist."},
+    {k:['phone','call','human','talk'],t:"You can reach Star directly at 850.640.6093, daily 9am–6pm. Or leave your number here and they'll text you."},
+    {k:['thank'],t:"Anytime ⭐ See you on the water!"},
+    {k:['hello','hi','hey'],t:"Hey! Ask me anything — pricing, requirements, the island run — or say 'book' and I'll get your slot started."}
+  ],
+  fallback:"I can help with pricing, requirements, or getting you booked. For anything else, Star's crew is at 850.640.6093 daily 9–6."
+};
 </script>
+<script src="vendor/simli-client.js?v=20260910a"></script>
+<script src="marina-agent.js?v=20260910a"></script>
 </body>
 </html>

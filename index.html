@@ -93,7 +93,7 @@ footer a{color:#cfe8f0;text-decoration:none}
 .foot-bottom{border-top:1px solid #0d3a50;margin-top:36px;padding-top:20px;text-align:center;font-size:.82rem}
 .demo-note{background:#fff3d6;border:1px solid #f0dca4;color:#7a5a1e;font-size:.8rem;text-align:center;padding:8px}
 
-#bot-fab{position:fixed;bottom:22px;right:22px;z-index:100;background:var(--sun);color:#1d1600;border:none;border-radius:999px;padding:20px 34px;font-weight:800;font-size:1.3rem;cursor:pointer;box-shadow:0 6px 22px rgba(0,0,0,.28)}
+#bot-fab{position:fixed;bottom:22px;right:22px;z-index:100;background:var(--sun);color:#1d1600;border:none;border-radius:999px;padding:24px 40px;font-weight:800;font-size:1.35rem;cursor:pointer;box-shadow:0 6px 22px rgba(0,0,0,.28)}
 /* Panel open: launcher becomes a close button, so only one avatar is on screen */
 #bot-fab.fab-x{font-size:0;padding:15px 22px;opacity:.95}
 #bot-fab.fab-x .bot-fab-face{display:none}
@@ -105,7 +105,7 @@ body:has(#bot-panel.open) #bot-fab::after{content:"\2715";font-size:1.35rem;font
 #bot-panel.open{display:flex}
 .bot-head{background:linear-gradient(135deg,var(--deep),var(--turq));color:#fff;padding:14px 16px;display:flex;align-items:center;gap:10px}
 .bot-avatar{width:34px;height:34px;border-radius:50%;background:var(--sun);display:flex;align-items:center;justify-content:center;object-fit:cover;object-position:center 20%}
-.bot-fab-face{width:64px;height:64px;border-radius:50%;object-fit:cover;object-position:center 20%;vertical-align:middle;margin-right:14px;border:2px solid rgba(255,255,255,.85);box-shadow:0 2px 8px rgba(0,0,0,.3)}
+.bot-fab-face{width:76px;height:76px;border-radius:50%;object-fit:cover;object-position:center 20%;vertical-align:middle;margin-right:14px;border:2px solid rgba(255,255,255,.85);box-shadow:0 2px 8px rgba(0,0,0,.3)}
 .bot-head small{display:block;opacity:.8;font-weight:400}
 #bot-log{padding:14px;height:300px;overflow-y:auto;background:#f2f9fa;display:flex;flex-direction:column;gap:8px}
 .msg{max-width:85%;padding:9px 13px;border-radius:12px;font-size:.9rem;white-space:pre-line}
@@ -139,7 +139,8 @@ body:has(#bot-panel.open) #bot-fab::after{content:"\2715";font-size:1.35rem;font
  nav.main ul{display:none}
  .topbar .wrap{flex-direction:column;gap:4px;font-size:.78rem;text-align:center}
  .hero-ctas a.cta{flex:1;min-width:140px;text-align:center}
- #bot-fab{bottom:calc(14px + env(safe-area-inset-bottom));right:14px;padding:16px 26px;font-size:1.12rem}
+ #bot-fab{bottom:calc(14px + env(safe-area-inset-bottom));right:14px;padding:20px 30px;font-size:1.15rem}
+ .bot-fab-face{width:70px;height:70px;margin-right:12px}
  #bot-panel{bottom:calc(70px + env(safe-area-inset-bottom));max-height:72vh}
  #bot-log{height:min(280px,48vh)}
  #bot-fab{right:14px !important}
@@ -319,7 +320,7 @@ body:has(#bot-panel.open) #bot-fab::after{content:"\2715";font-size:1.35rem;font
 </footer>
 
 <!-- Jake -->
-<button id="bot-fab"><img class="bot-fab-face" src="bot-face.png?v=3" alt="Jake">Ask Jake</button>
+<button id="bot-fab"><img class="bot-fab-face" src="bot-face.png?v=4" alt="Jake">Ask Jake</button>
 <div id="bot-panel" role="dialog" aria-label="Jake chat">
  <div class="bot-head"><div><b>Jake</b><small>Bookings & answers · 24/7</small></div><button id="bot-mute" class="bot-ctl" style="margin-left:auto" title="Voice on">🔊</button><button id="bot-mic" class="bot-ctl" title="Talk hands-free">🎤</button><button id="bot-video" class="bot-ctl" title="Live video avatar">🎥</button></div>
  <div id="bot-video-wrap" aria-hidden="true"><span id="bot-video-live"><i></i>LIVE</span><video id="bot-video-el" autoplay playsinline muted></video><audio id="bot-simli-audio" autoplay></audio></div>

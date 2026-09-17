@@ -95,6 +95,9 @@ footer a{color:#cfe8f0;text-decoration:none}
 
 #bot-fab{position:fixed;bottom:22px;right:22px;z-index:100;background:var(--sun);color:#1d1600;border:none;border-radius:999px;padding:20px 34px;font-weight:800;font-size:1.3rem;cursor:pointer;box-shadow:0 6px 22px rgba(0,0,0,.28)}
 /* Panel open: launcher becomes a close button, so only one avatar is on screen */
+#bot-fab.fab-x{font-size:0;padding:15px 22px;opacity:.95}
+#bot-fab.fab-x .bot-fab-face{display:none}
+#bot-fab.fab-x::after{content:"\2715";font-size:1.35rem;font-weight:800;line-height:1}
 body:has(#bot-panel.open) #bot-fab{font-size:0;padding:15px 22px;opacity:.95}
 body:has(#bot-panel.open) #bot-fab .bot-fab-face{display:none}
 body:has(#bot-panel.open) #bot-fab::after{content:"\2715";font-size:1.35rem;font-weight:800;line-height:1}
@@ -379,6 +382,15 @@ window.BOT_CFG={
 };
 </script>
 <script src="vendor/simli-client.js?v=20260910a"></script>
+<script>
+/* Launcher becomes a close button while the panel is open (fallback for browsers without :has) */
+(function(){
+ var p=document.getElementById('bot-panel'),f=document.getElementById('bot-fab');
+ if(!p||!f)return;
+ var sync=function(){f.classList.toggle('fab-x',p.classList.contains('open'));};
+ new MutationObserver(sync).observe(p,{attributes:true,attributeFilter:['class']});
+})();
+</script>
 <script src="marina-agent.js?v=20260910a"></script>
 </body>
 </html>

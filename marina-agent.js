@@ -293,7 +293,7 @@
       botSay('Video avatar library did not load — voice mode still works.');
       return;
     }
-    videoBtn.textContent = '…';
+    videoBtn.classList.add('starting');
     videoStarting = true;
     cancelSpeech();
     try {
@@ -302,12 +302,12 @@
       videoStarting = false;
       panel.classList.add('video-mode');
       videoBtn.classList.add('on');
-      videoBtn.textContent = '🎥';
+      videoBtn.classList.remove('starting');
       botSay('Video avatar is live now — watch me talk. Tap the mic and just talk to me.');
       setModeUI();
     } catch (e) {
       videoStarting = false;
-      videoBtn.textContent = '🎥';
+      videoBtn.classList.remove('starting');
       var why = (e && (e.message || e.reason || e)) ? String(e.message || e.reason || e) : 'unknown';
       botSay('Video could not connect (' + why + '). Voice mode still works. If you keep seeing this, open the page in Safari.');
     }
@@ -372,7 +372,7 @@
   function toggleMute() {
     muted = !muted;
     if (muteBtn) {
-      muteBtn.textContent = muted ? '🔇' : '🔊';
+      muteBtn.classList.toggle('muted', muted);
       muteBtn.title = muted ? 'Voice off' : 'Voice on';
     }
     if (muted && currentAudio) { currentAudio.pause(); }

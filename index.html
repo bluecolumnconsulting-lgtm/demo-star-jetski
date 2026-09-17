@@ -3,423 +3,326 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Star Jet Ski Rentals — Panama City Beach | Harbor Check-In Demo</title>
-<meta name="description" content="Demo site for Star Jet Ski Rentals in Panama City Beach, Florida. $150 per hour jet ski rentals with a 4.9/5 rating from 1,900+ riders.">
+<title>Star Jet Ski Rentals — Panama City Beach | Same-Day Jet Ski & Boat Tours</title>
+<meta name="description" content="Brand-new Yamaha VX Deluxe jet skis on Panama City Beach. Same-day bookings, 4.9/5 from 1,900+ riders. Book online in seconds or call 850.640.6093.">
 <!-- DEMO SITE — built by BlueColumn AI as a sales demo for Star Jet Ski Rentals. Not affiliated with starjetskirentals.com. -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:opsz,wght@8..144,100..900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
-  --harbor:#06283D;
-  --ink:#0E1B24;
-  --paper:#F2EFE6;
-  --flare:#FF6B35;
-  --buoy:#7FD1C9;
-  --line:rgba(242,239,230,.18);
-  --rule:rgba(6,40,61,.16);
-  --text:#10222f;
-  --muted:#4f6471;
-  --radius:2px;
-  --shadow:0 18px 40px rgba(2,16,24,.22);
+  --deep:#04455c; --sea:#0a7fa8; --turq:#19b8c4; --sun:#ffb200; --sand:#fff8ec;
+  --ink:#123243; --muted:#5c7b8a; --card:#ffffff; --line:#dcebef;
 }
-*{box-sizing:border-box;margin:0;padding:0}
+*{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{font-family:'Archivo',system-ui,sans-serif;background:var(--paper);color:var(--text);line-height:1.5}
-a{color:inherit}
-img{max-width:100%;display:block}
-button,input,select,textarea{font:inherit}
-button,input,select,textarea,a{min-height:44px}
-:focus-visible{outline:2px solid var(--flare);outline-offset:2px}
-@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+body{font-family:'Inter','SF Pro Text',-apple-system,'Segoe UI',sans-serif;color:var(--ink);background:var(--sand);line-height:1.6}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+h2.sec{font-size:2rem;margin-bottom:.4em}
+p.sub{color:var(--muted);margin-bottom:2.2rem;max-width:640px}
 
-body::before{
-  content:"08 14 22 31 44 57 63 71";
-  position:fixed;
-  right:12px;
-  top:18vh;
-  writing-mode:vertical-rl;
-  font-family:'IBM Plex Mono',monospace;
-  font-size:.72rem;
-  letter-spacing:.2em;
-  color:rgba(6,40,61,.16);
-  pointer-events:none;
-  z-index:0;
-}
-body::after{
-  content:"12 19 27 36 48";
-  position:fixed;
-  left:10px;
-  bottom:14vh;
-  font-family:'IBM Plex Mono',monospace;
-  font-size:.72rem;
-  letter-spacing:.24em;
-  color:rgba(6,40,61,.13);
-  pointer-events:none;
-  z-index:0;
-}
+.topbar{background:var(--deep);color:#cfe8f0;font-size:.85rem;padding:8px 0}
+.topbar .wrap{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.topbar b{color:#fff}
+.topbar a{color:var(--sun);font-weight:700;text-decoration:none}
+nav.main{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50}
+nav.main .wrap{display:flex;justify-content:space-between;align-items:center;padding:14px 20px}
+.logo{font-weight:800;font-size:1.25rem}
+.logo span{color:var(--turq)}
+nav.main ul{display:flex;gap:18px;list-style:none}
+nav.main a.navlink{text-decoration:none;color:var(--ink);font-weight:600;font-size:.95rem}
+.cta{display:inline-block;background:var(--sun);color:#1d1600;padding:11px 24px;border-radius:8px;font-weight:800;text-decoration:none;border:none;cursor:pointer;font-size:.95rem}
+.cta:hover{filter:brightness(1.06)}
+.cta.ghost{background:transparent;color:#fff;border:2px solid #fff}
 
-.wrap{width:min(1180px,calc(100vw - 32px));margin:0 auto;position:relative;z-index:1}
-.mono{font-family:'IBM Plex Mono',monospace}
-.display{font-family:'Archivo',system-ui,sans-serif;font-stretch:expanded}
-.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:.76rem;letter-spacing:.18em;text-transform:uppercase;color:var(--buoy)}
-.section{padding:72px 0;border-top:1px solid var(--rule)}
-.section-dark{background:var(--ink);color:var(--paper);border-top-color:rgba(242,239,230,.1)}
-.section-title{font-size:clamp(2rem,4.5vw,4rem);line-height:.96;letter-spacing:-.03em;text-transform:uppercase}
-.section-sub{max-width:38rem;margin-top:16px;color:var(--muted)}
-.section-dark .section-sub{color:rgba(242,239,230,.72)}
+header.hero{background:linear-gradient(160deg,var(--deep) 0%,var(--sea) 55%,var(--turq) 100%);color:#fff;padding:74px 0 80px;position:relative;overflow:hidden}
+header.hero::before{content:"";position:absolute;bottom:-2px;left:0;right:0;height:60px;background:var(--sand);border-radius:50% 50% 0 0/100% 100% 0 0;max-width:140%;width:120%;left:-10%}
+header.hero .wrap{position:relative;z-index:1}
+.hero-chips{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:22px}
+.chip{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);border-radius:999px;padding:5px 14px;font-size:.8rem;font-weight:600}
+header.hero h1{font-size:clamp(1.9rem,5.2vw,2.9rem);line-height:1.12;font-weight:800;max-width:780px}
+header.hero h1 em{color:var(--sun);font-style:normal}
+header.hero p.lead{margin:18px 0 30px;font-size:clamp(.98rem,2.2vw,1.15rem);color:#d8eef5;max-width:620px}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
 
-.topline{background:var(--ink);color:var(--paper);border-bottom:1px solid rgba(242,239,230,.12)}
-.topline .wrap{display:flex;justify-content:space-between;gap:16px;align-items:center;padding:10px 0;font-family:'IBM Plex Mono',monospace;font-size:.74rem;letter-spacing:.08em;text-transform:uppercase}
-.topline a{color:var(--flare);text-decoration:none}
+section{padding:58px 0}
+section.alt{background:#fff}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:28px}
+@media(max-width:860px){.grid4,.grid3,.grid2{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:24px}
+.card h3{margin-bottom:8px;font-size:1.1rem}
+.card p{color:var(--muted);font-size:.93rem}
+.card ul{margin:10px 0 0 18px;color:var(--muted);font-size:.9rem}
+.card ul li{margin-bottom:4px}
+.badge{display:inline-block;background:var(--sun);color:#1d1600;font-size:.72rem;font-weight:800;border-radius:999px;padding:3px 10px;margin-bottom:10px}
+.price{font-size:1.35rem;font-weight:800;color:var(--sea);margin-top:12px}
+.price small{font-size:.8rem;color:var(--muted);font-weight:600}
+.cardphoto{width:calc(100% + 48px);margin:-24px -24px 16px;height:150px;object-fit:cover;display:block}
+.ph{background:var(--deep);border-radius:12px;aspect-ratio:4/3;overflow:hidden}
+.ph img{width:100%;height:100%;object-fit:cover;display:block}
 
-.main-nav{position:sticky;top:0;z-index:20;background:rgba(6,40,61,.96);backdrop-filter:blur(8px);border-bottom:1px solid rgba(242,239,230,.14)}
-.main-nav .wrap{display:grid;grid-template-columns:1.3fr auto auto;gap:20px;align-items:center;padding:14px 0}
-.brand{font-family:'Archivo',system-ui,sans-serif;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--paper);text-decoration:none}
-.brand small{display:block;font-family:'IBM Plex Mono',monospace;font-size:.67rem;font-weight:500;letter-spacing:.2em;color:rgba(242,239,230,.62)}
-.nav-links{display:flex;gap:18px;list-style:none;justify-self:center}
-.nav-links a{font-family:'IBM Plex Mono',monospace;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;color:rgba(242,239,230,.8);display:inline-flex;align-items:center}
-.station-cta{position:relative;display:inline-flex;align-items:center;justify-content:center;padding:0 18px;background:var(--paper);color:var(--ink);text-decoration:none;font-family:'IBM Plex Mono',monospace;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;border:1px solid rgba(242,239,230,.24);min-width:168px}
-.station-cta::before{content:"";position:absolute;top:-1px;right:-1px;width:18px;height:18px;background:var(--flare);clip-path:polygon(100% 0,0 0,100% 100%)}
-.station-cta.inverse{background:transparent;color:var(--paper)}
-.station-cta.inverse::before{background:var(--flare)}
+.step{display:flex;gap:16px;align-items:flex-start}
+.step .n{background:var(--turq);color:#fff;width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;flex-shrink:0}
 
-.hero{position:relative;background:var(--harbor);color:var(--paper);overflow:hidden}
-.hero::before,
-.hero::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background-repeat:no-repeat;
-  background-size:cover;
-  opacity:.38;
-  pointer-events:none;
-}
-.hero::before{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 980'%3E%3Cg fill='none' stroke='%23F2EFE6' stroke-opacity='.18' stroke-width='1.5'%3E%3Cpath d='M-20 120c180 34 226 96 387 86 135-9 211-83 347-83 164 0 224 83 382 83 180 0 245-91 525-72'/%3E%3Cpath d='M-20 210c142 0 216 48 353 48 152 0 226-94 405-94 150 0 242 66 375 66 177 0 242-46 487-38'/%3E%3Cpath d='M-20 302c194 11 270 78 446 78 154 0 238-128 407-128 170 0 231 87 392 87 155 0 241-63 375-57'/%3E%3Cpath d='M-20 412c177 14 255 66 420 66 165 0 250-84 404-84 174 0 235 54 390 54 181 0 245-43 406-28'/%3E%3Cpath d='M-20 528c135-10 230 34 388 34 161 0 244-60 413-60 155 0 235 66 387 66 145 0 236-34 432-22'/%3E%3Cpath d='M-20 646c182-15 251-74 426-74 181 0 243 101 400 101 171 0 238-77 418-77 153 0 223 35 376 35'/%3E%3Cpath d='M-20 760c159 0 250-54 426-54 176 0 240 80 398 80 163 0 236-80 415-80 146 0 238 53 381 53'/%3E%3C/g%3E%3C/svg%3E");}
-.hero::after{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 980'%3E%3Cg fill='none' stroke='%237FD1C9' stroke-opacity='.16' stroke-width='1'%3E%3Cpath d='M120 82v780'/%3E%3Cpath d='M318 74v808'/%3E%3Cpath d='M548 58v842'/%3E%3Cpath d='M774 96v772'/%3E%3Cpath d='M1038 80v796'/%3E%3Cpath d='M1296 58v822'/%3E%3C/g%3E%3C/svg%3E");opacity:.18}
-.hero .wrap{display:grid;grid-template-columns:minmax(0,3.2fr) minmax(280px,1.5fr);gap:28px;min-height:88vh;align-items:end;padding:56px 0 40px}
-.hero-copy{display:grid;grid-template-columns:repeat(6,1fr);gap:18px;padding-top:54px}
-.hero-meta{grid-column:1 / span 2;align-self:start;font-family:'IBM Plex Mono',monospace;font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(242,239,230,.68)}
-.hero-title{grid-column:1 / span 5;font-size:clamp(3rem,8vw,7rem);line-height:.88;letter-spacing:-.06em;text-transform:uppercase;max-width:8.2ch}
-.hero-title span{display:block;color:var(--flare)}
-.hero-lead{grid-column:2 / span 3;max-width:30rem;color:rgba(242,239,230,.78);font-size:1.03rem}
-.hero-soundings{grid-column:5 / span 2;align-self:end;justify-self:end;font-family:'IBM Plex Mono',monospace;font-size:.8rem;letter-spacing:.24em;line-height:1.9;color:rgba(242,239,230,.48);text-align:right}
-.chart-marker{align-self:end;background:rgba(14,27,36,.88);border:1px solid rgba(242,239,230,.16);padding:18px;box-shadow:var(--shadow);position:relative}
-.chart-marker::before{content:"Station 03";position:absolute;top:-11px;left:16px;background:var(--paper);color:var(--ink);font-family:'IBM Plex Mono',monospace;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;padding:3px 8px;min-height:auto}
-.chart-marker h2{font-size:1.2rem;text-transform:uppercase;letter-spacing:.02em;margin-bottom:10px}
-.chart-marker dl{display:grid;grid-template-columns:auto 1fr;gap:10px 12px;font-family:'IBM Plex Mono',monospace;font-size:.78rem;margin-bottom:16px}
-.chart-marker dt{color:rgba(242,239,230,.54);text-transform:uppercase;letter-spacing:.12em}
-.chart-marker dd{color:var(--paper)}
-.chart-actions{display:grid;gap:10px}
+.fleet{background:linear-gradient(135deg,#065a77,#0a7fa8);color:#fff;border-radius:14px;padding:34px}
+.fleet h3{font-size:1.4rem;margin-bottom:8px}
+.fleet p{color:#cfe8f0}
+.fleet .grid4{margin-top:22px}
+.fleet .card{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.18);color:#fff}
+.fleet .card p,.fleet .card ul{color:#cfe8f0}
+.fleet .card ul{list-style:none;margin-left:0}
+.fleet .card ul li::before{content:"✓ ";color:var(--sun);font-weight:800}
 
-.editorial-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:18px;align-items:start}
-.rates-panel{grid-column:1 / span 3;border:1px solid var(--rule);padding:26px;background:rgba(255,255,255,.42)}
-.rates-panel .price-line{display:flex;justify-content:space-between;align-items:end;padding:18px 0;border-top:1px solid var(--rule)}
-.rates-panel .price-line:first-of-type{margin-top:18px}
-.rates-panel strong{font-size:3rem;line-height:.9;color:var(--harbor)}
-.rates-panel small{font-family:'IBM Plex Mono',monospace;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
-.logbook{grid-column:4 / span 3;display:grid;gap:0;border:1px solid var(--rule);background:#fff}
-.log-row{display:grid;grid-template-columns:74px 1fr;min-height:86px;border-top:1px solid var(--rule)}
-.log-row:first-child{border-top:none}
-.log-index{display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:.78rem;letter-spacing:.16em;color:var(--harbor);border-right:1px solid var(--rule)}
-.log-copy{padding:16px 18px}
-.log-copy h3{font-size:1.1rem;text-transform:uppercase;letter-spacing:.02em;margin-bottom:6px}
-.log-copy p{color:var(--muted)}
+details{background:#fff;border:1px solid var(--line);border-radius:10px;margin-bottom:10px;padding:16px 20px}
+details summary{font-weight:700;cursor:pointer}
+details p{color:var(--muted);margin-top:8px;font-size:.93rem}
 
-.split-showcase{display:grid;grid-template-columns:repeat(6,1fr);gap:18px;margin-top:28px}
-.crop-block,.fact-block{position:relative;min-height:240px;border:1px solid rgba(242,239,230,.12);overflow:hidden}
-.crop-block{grid-column:1 / span 4;background:var(--harbor)}
-.crop-block img{width:100%;height:100%;object-fit:cover;filter:grayscale(.08) contrast(1.05) brightness(.72)}
-.crop-block::after,.fact-block::after{content:"";position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'%3E%3Cg fill='none' stroke='%23F2EFE6' stroke-opacity='.2' stroke-width='1'%3E%3Cpath d='M-10 80c104 0 172 46 264 46 115 0 145-62 265-62 115 0 157 59 286 59'/%3E%3Cpath d='M-10 170c110 0 170 35 266 35 120 0 157-72 268-72 118 0 167 43 286 43'/%3E%3Cpath d='M-10 270c88 0 169 57 264 57 126 0 161-80 272-80 111 0 174 58 274 58'/%3E%3Cpath d='M-10 370c110 0 176 31 269 31 108 0 169-48 265-48 123 0 180 36 276 36'/%3E%3C/g%3E%3C/svg%3E");mix-blend-mode:screen;opacity:.6}
-.crop-label,.fact-label{position:absolute;left:16px;bottom:16px;background:rgba(14,27,36,.82);padding:12px 14px;border-left:2px solid var(--flare);max-width:360px}
-.crop-label strong,.fact-label strong{display:block;font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--buoy);margin-bottom:6px}
-.fact-block{grid-column:5 / span 2;background:#16252f;color:var(--paper);padding:18px;display:flex;align-items:end}
-.fact-block p{position:relative;z-index:1;font-size:1.05rem}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:700px){.form-grid{grid-template-columns:1fr}}
+label{font-weight:600;font-size:.88rem;display:block;margin-bottom:5px}
+input,select,textarea{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:8px;font-size:.95rem;font-family:inherit;background:#fff}
+.full{grid-column:1/-1}
 
-.checkin{display:grid;grid-template-columns:repeat(6,1fr);gap:18px}
-.checkin-copy{grid-column:1 / span 2}
-.checkin-steps{grid-column:3 / span 4;border:1px solid rgba(242,239,230,.14)}
-.step-row{display:grid;grid-template-columns:84px 1fr;min-height:110px;border-top:1px solid rgba(242,239,230,.14)}
-.step-row:first-child{border-top:none}
-.step-num{display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:.92rem;letter-spacing:.18em;color:var(--flare);border-right:1px solid rgba(242,239,230,.14)}
-.step-copy{padding:18px}
-.step-copy h3{font-size:1.1rem;text-transform:uppercase;margin-bottom:8px}
-.step-copy p{color:rgba(242,239,230,.72)}
+footer{background:#04283a;color:#9dbcc9;padding:56px 0 28px;font-size:.92rem}
+footer h4{color:#fff;margin-bottom:12px}
+footer ul{list-style:none}
+footer li{margin-bottom:6px}
+footer a{color:#cfe8f0;text-decoration:none}
+.foot-bottom{border-top:1px solid #0d3a50;margin-top:36px;padding-top:20px;text-align:center;font-size:.82rem}
+.demo-note{background:#fff3d6;border:1px solid #f0dca4;color:#7a5a1e;font-size:.8rem;text-align:center;padding:8px}
 
-.faq-book{display:grid;grid-template-columns:repeat(6,1fr);gap:18px}
-.faq-list{grid-column:1 / span 3;border:1px solid var(--rule);background:#fff}
-.faq-item{padding:18px;border-top:1px solid var(--rule)}
-.faq-item:first-child{border-top:none}
-.faq-item h3{font-size:1rem;text-transform:uppercase;margin-bottom:8px}
-.faq-item p{color:var(--muted);font-size:.95rem}
-.book-panel{grid-column:4 / span 3;border:1px solid var(--rule);padding:22px;background:rgba(255,255,255,.6)}
-.book-panel .meta{display:grid;grid-template-columns:1fr 1fr;gap:12px 16px;margin:16px 0 20px;font-family:'IBM Plex Mono',monospace;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase}
-.book-panel .meta strong{display:block;color:var(--harbor);font-size:.72rem}
-.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.form-grid .full{grid-column:1 / -1}
-label{display:block;font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px;color:var(--harbor)}
-input,select,textarea{width:100%;padding:12px 10px;border:1px solid var(--rule);background:#fff;border-radius:var(--radius)}
-textarea{resize:vertical;min-height:110px}
-button.station-cta{border:none;cursor:pointer;background:var(--ink);color:var(--paper)}
-button.station-cta::before{background:var(--flare)}
-#form-ok{display:none;margin-top:14px;font-family:'IBM Plex Mono',monospace;font-size:.8rem;letter-spacing:.06em;color:var(--harbor)}
-.demo-note{padding:10px 14px;background:#e9e1d2;border-top:1px solid var(--rule);font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);text-align:center}
-.footer{background:var(--harbor);color:var(--paper);padding:40px 0}
-.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.2fr;gap:18px}
-.footer h4{font-family:'IBM Plex Mono',monospace;font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;color:var(--buoy);margin-bottom:12px}
-.footer p,.footer li{color:rgba(242,239,230,.76)}
-.footer ul{list-style:none}
-.footer li+li{margin-top:8px}
-.footer .footline{margin-top:26px;padding-top:14px;border-top:1px solid rgba(242,239,230,.12);font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(242,239,230,.56)}
-
-#bot-fab{position:fixed;right:18px;bottom:18px;z-index:25;border:none;cursor:pointer;background:var(--paper);color:var(--ink);padding:0 18px;font-family:'IBM Plex Mono',monospace;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;box-shadow:var(--shadow);min-width:176px}
-#bot-fab::before{content:"03";margin-right:10px;color:var(--flare)}
-#bot-panel{position:fixed;right:18px;bottom:74px;width:min(360px,calc(100vw - 24px));background:var(--paper);border:1px solid rgba(6,40,61,.22);box-shadow:var(--shadow);z-index:26;display:none;flex-direction:column;overflow:hidden}
+#bot-fab{position:fixed;bottom:22px;right:22px;z-index:100;background:var(--sun);color:#1d1600;border:none;border-radius:999px;padding:13px 20px;font-weight:800;font-size:.95rem;cursor:pointer;box-shadow:0 6px 22px rgba(0,0,0,.28)}
+#bot-panel{position:fixed;bottom:80px;right:22px;width:340px;max-width:calc(100vw - 32px);background:#fff;border-radius:14px;box-shadow:0 12px 40px rgba(0,0,0,.3);z-index:101;display:none;flex-direction:column;overflow:hidden}
 #bot-panel.open{display:flex}
-.bot-head{display:grid;grid-template-columns:auto 1fr auto auto auto;gap:10px;align-items:center;background:#d9d1c2;color:var(--ink);padding:14px 16px;border-bottom:1px solid rgba(6,40,61,.16)}
-.bot-avatar{width:38px;height:38px;border:1px solid rgba(6,40,61,.2);display:flex;align-items:center;justify-content:center;background:#f6f2e8;font-family:'IBM Plex Mono',monospace;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase}
-.bot-head b{display:block;font-size:.98rem;text-transform:uppercase}
-.bot-head small{display:block;font-family:'IBM Plex Mono',monospace;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:#586a76}
-.bot-ctl{background:none;border:none;cursor:pointer;color:var(--ink);padding:0 4px;min-height:44px;display:inline-flex;align-items:center;font-family:'IBM Plex Mono',monospace;font-size:.9rem}
-.bot-ctl.on{color:var(--flare)}
-#bot-video-wrap{display:none;position:relative;background:#10181f;border-bottom:1px solid rgba(6,40,61,.16)}
+.bot-head{background:linear-gradient(135deg,var(--deep),var(--turq));color:#fff;padding:14px 16px;display:flex;align-items:center;gap:10px}
+.bot-avatar{width:34px;height:34px;border-radius:50%;background:var(--sun);display:flex;align-items:center;justify-content:center}
+.bot-head small{display:block;opacity:.8;font-weight:400}
+#bot-log{padding:14px;height:300px;overflow-y:auto;background:#f2f9fa;display:flex;flex-direction:column;gap:8px}
+.msg{max-width:85%;padding:9px 13px;border-radius:12px;font-size:.9rem;white-space:pre-line}
+.msg.bot{background:#fff;border:1px solid var(--line);align-self:flex-start;border-bottom-left-radius:3px}
+.msg.user{background:var(--sea);color:#fff;align-self:flex-end;border-bottom-right-radius:3px}
+.bot-opts{display:flex;flex-wrap:wrap;gap:6px;align-self:flex-start}
+.bot-opts button{background:#fff;border:1.5px solid var(--turq);color:var(--deep);border-radius:999px;padding:5px 12px;font-size:.82rem;font-weight:700;cursor:pointer}
+.bot-input{display:flex;border-top:1px solid var(--line)}
+.bot-input input{border:none;border-radius:0;flex:1}
+.bot-input button{background:var(--sea);color:#fff;border:none;padding:0 18px;font-weight:700;cursor:pointer}
+
+/* Marina agent additions (live brain · dynamic voice · video avatar) — contained to the bot panel, page layout unchanged */
+.bot-ctl{background:none;border:none;cursor:pointer;font-size:1rem;color:#fff;padding:2px 4px;margin-left:4px;opacity:.85}
+.bot-ctl:hover{opacity:1}
+.bot-ctl.on{color:var(--sun);opacity:1}
+#bot-video-wrap{display:none;position:relative;background:#000}
 #bot-panel.video-mode #bot-video-wrap{display:block}
-#bot-video-el{width:100%;aspect-ratio:4/5;object-fit:cover;display:block}
-#bot-video-live{position:absolute;left:12px;top:12px;background:rgba(242,239,230,.92);color:var(--ink);padding:4px 8px;font-family:'IBM Plex Mono',monospace;font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;display:flex;gap:6px;align-items:center;min-height:auto}
-#bot-video-live i{width:7px;height:7px;background:var(--flare);display:inline-block}
-#bot-log{padding:14px;background:var(--paper);display:flex;flex-direction:column;gap:10px;max-height:320px;overflow-y:auto}
-.msg{max-width:88%;padding:10px 12px;border:1px solid rgba(6,40,61,.14);font-size:.92rem;white-space:pre-line;border-radius:var(--radius)}
-.msg.bot{background:#fff;color:var(--text);align-self:flex-start}
-.msg.user{background:var(--harbor);color:var(--paper);align-self:flex-end;border-color:var(--harbor)}
-.bot-opts{display:flex;flex-wrap:wrap;gap:8px;align-self:flex-start}
-.bot-opts button{min-height:44px;padding:0 12px;background:#fff;border:1px solid rgba(6,40,61,.18);font-family:'IBM Plex Mono',monospace;font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
-.bot-input{display:flex;border-top:1px solid rgba(6,40,61,.14)}
-.bot-input input{border:none;background:#fff;padding:12px 14px;min-height:48px}
-.bot-input button{min-width:88px;border:none;background:var(--ink);color:var(--paper);cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:.76rem;letter-spacing:.14em;text-transform:uppercase}
-.bc-typing{display:flex;gap:4px;align-items:center}
-.bc-typing span{width:6px;height:6px;background:var(--harbor);display:inline-block;animation:bdot 1s infinite}
-.bc-typing span:nth-child(2){animation-delay:.15s}.bc-typing span:nth-child(3){animation-delay:.3s}
+#bot-video-el{width:100%;aspect-ratio:1/1;object-fit:cover;display:block}
+#bot-video-live{position:absolute;top:8px;left:8px;background:rgba(220,40,40,.9);color:#fff;font-size:.62rem;font-weight:800;padding:2px 8px;border-radius:999px;display:flex;align-items:center;gap:4px;letter-spacing:.5px}
+#bot-video-live i{width:6px;height:6px;border-radius:50%;background:#fff;display:inline-block;animation:vblink 1.2s infinite}
+@keyframes vblink{50%{opacity:.15}}
+#bot-avatar{display:inline-block;transform-origin:50% 88%}
+.bc-typing{display:flex;gap:3px;align-items:center}
+.bc-typing span{width:6px;height:6px;border-radius:50%;background:var(--muted);display:inline-block;animation:bdot 1s infinite}
+.bc-typing span:nth-child(2){animation-delay:.15s}
+.bc-typing span:nth-child(3){animation-delay:.3s}
 @keyframes bdot{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
 
-@media (max-width:980px){
-  .hero .wrap,.editorial-grid,.split-showcase,.checkin,.faq-book,.footer-grid{grid-template-columns:1fr}
-  .hero .wrap{min-height:auto;padding:40px 0 32px}
-  .hero-copy{grid-template-columns:1fr 1fr}
-  .hero-meta,.hero-title,.hero-lead,.hero-soundings,.chart-marker,.rates-panel,.logbook,.crop-block,.fact-block,.checkin-copy,.checkin-steps,.faq-list,.book-panel{grid-column:auto}
-  .hero-title{max-width:none}
-  .hero-soundings{justify-self:start;text-align:left}
-  .main-nav .wrap{grid-template-columns:1fr auto}
-  .nav-links{display:none}
-}
-@media (max-width:700px){
-  .topline .wrap{flex-direction:column;align-items:flex-start}
-  .hero-copy{grid-template-columns:1fr}
-  .hero-lead{grid-column:auto}
-  .form-grid,.book-panel .meta{grid-template-columns:1fr}
-  #bot-fab{right:12px;bottom:12px}
-  #bot-panel{right:12px;bottom:68px}
+@media(max-width:700px){
+  nav.main ul{display:none}
+  .topbar .wrap{flex-direction:column;gap:4px;font-size:.78rem;text-align:center}
+  .hero-ctas a.cta{flex:1;min-width:140px;text-align:center}
+  #bot-fab{bottom:calc(14px + env(safe-area-inset-bottom));right:14px;padding:10px 14px;font-size:.88rem}
+  #bot-panel{bottom:calc(70px + env(safe-area-inset-bottom));max-height:72vh}
+  #bot-log{height:min(280px,48vh)}
+  #bot-fab{right:14px !important}
 }
 </style>
 </head>
 <body>
-<div class="topline">
+
+<div class="topbar">
   <div class="wrap">
-    <div>Panama City Beach FL · 4.9/5 rating · 1,900+ riders</div>
-    <div>$150 per hour · <a href="tel:8506406093">850.640.6093</a></div>
+    <div><b>4.9/5</b> from 1,900+ riders · Same-day bookings</div>
+    <div>Open Daily 9am–6pm · Panama City Beach · <a href="tel:8506406093">850.640.6093</a></div>
   </div>
 </div>
 
-<nav class="main-nav" aria-label="Primary">
+<nav class="main">
   <div class="wrap">
-    <a class="brand" href="#top">Star Jet Ski Rentals<small>Harbor check-in demo</small></a>
-    <ul class="nav-links">
-      <li><a href="#rates">Rates</a></li>
-      <li><a href="#waterline">On the water</a></li>
-      <li><a href="#checkin">Check-in</a></li>
-      <li><a href="#faq">FAQ</a></li>
+    <div class="logo">⭐ STAR <span>JET SKI</span></div>
+    <ul>
+      <li><a class="navlink" href="#rentals">Rentals</a></li>
+      <li><a class="navlink" href="#fleet">The Fleet</a></li>
+      <li><a class="navlink" href="#faq">FAQ</a></li>
     </ul>
-    <a class="station-cta" href="#book">Book station</a>
+    <a class="cta" href="#book">Book Now</a>
   </div>
 </nav>
 
-<header class="hero" id="top">
+<header class="hero">
   <div class="wrap">
-    <div class="hero-copy">
-      <div class="hero-meta">Sounding chart · Station open daily</div>
-      <h1 class="hero-title display">Panama City Beach <span>jet ski check-in</span></h1>
-      <p class="hero-lead">Star Jet Ski Rentals keeps the pitch simple in this demo: $150 per hour, a 4.9/5 rating, and 1,900+ riders already out on the water.</p>
-      <div class="hero-soundings">06 ft<br>11 ft<br>18 ft<br>27 ft<br>39 ft</div>
+    <div class="hero-chips">
+      <span class="chip">⭐ 4.9/5 Rated</span>
+      <span class="chip">🛟 Certified Guides</span>
+      <span class="chip">⚡ Instant Confirmation</span>
+      <span class="chip">🆕 Brand-New Yamahas</span>
     </div>
-    <aside class="chart-marker" aria-label="Booking summary">
-      <h2>Harbor booking station</h2>
-      <dl>
-        <dt>Rate</dt><dd>$150 / hour</dd>
-        <dt>Field</dt><dd>Panama City Beach, FL</dd>
-        <dt>Proof</dt><dd>4.9/5 from 1,900+ riders</dd>
-      </dl>
-      <div class="chart-actions">
-        <a class="station-cta" href="#book">Start check-in</a>
-        <a class="station-cta inverse" href="tel:8506406093">Call harbor desk</a>
-      </div>
-    </aside>
+    <h1>On The Water <em>Within The Hour.</em></h1>
+    <p class="lead">Brand-new Yamaha VX Deluxe jet skis, same-day bookings, and the best riding water in Panama City Beach. Book in seconds — ride today.</p>
+    <div class="hero-ctas">
+      <a class="cta" href="#book">Book My Jet Ski</a>
+      <a class="cta ghost" href="tel:8506406093">Call 850.640.6093</a>
+    </div>
   </div>
 </header>
 
-<section class="section" id="rates">
+<section id="rentals">
   <div class="wrap">
-    <p class="eyebrow">01 · rate board</p>
-    <div class="editorial-grid">
-      <div class="rates-panel">
-        <h2 class="section-title display">One clean offer.</h2>
-        <p class="section-sub">No fake packages, no padded stats. This demo keeps only the verified sales facts provided for Star Jet Ski Rentals.</p>
-        <div class="price-line">
-          <div>
-            <small>Jet ski rental</small>
-            <p>Harbor-side booking for Panama City Beach riders.</p>
-          </div>
-          <strong>$150</strong>
-        </div>
-      </div>
-      <div class="logbook" aria-label="Verified facts">
-        <div class="log-row">
-          <div class="log-index">01</div>
-          <div class="log-copy"><h3>Panama City Beach</h3><p>Location context stays explicit and visible in the navigation and booking copy.</p></div>
-        </div>
-        <div class="log-row">
-          <div class="log-index">02</div>
-          <div class="log-copy"><h3>4.9 / 5 rating</h3><p>Social proof is presented as a single ruled entry instead of inflated badge clutter.</p></div>
-        </div>
-        <div class="log-row">
-          <div class="log-index">03</div>
-          <div class="log-copy"><h3>1,900+ riders</h3><p>The rider count anchors trust without inventing reviews or testimonials.</p></div>
-        </div>
-      </div>
+    <h2 class="sec">Pick Your Ride</h2>
+    <p class="sub">Hourly sessions daily from 9am to 6pm. Same-day bookings accepted — safety gear always included.</p>
+    <div class="grid3">
+      <div class="card"><img class="cardphoto" src="photos/action-speed.webp" alt="Riders carving open water on Yamaha VX Deluxe skis" loading="lazy"><span class="badge">MOST POPULAR</span><h3>Jet Ski Rides</h3><p>Open water, your rules. Choose 1 or 2-hour sessions.</p><ul><li>Hourly sessions</li><li>Same-day booking OK</li><li>Safety gear provided</li><li>Optional photo package</li></ul><div class="price">From $150 <small>/ hour</small></div><a class="cta" href="#book" style="margin-top:14px;width:100%;text-align:center">Book This</a></div>
+      <div class="card"><img class="cardphoto" src="photos/tour-shallow.webp" alt="Guided jet ski tour through shallow Gulf water" loading="lazy"><span class="badge">GUIDED</span><h3>Jet Ski Tours</h3><p>Follow the guide — dolphin country, shells, and island stops.</p><ul><li>1 & 2 hour tours</li><li>Daily 9am–6pm</li><li>No experience needed</li><li>Pro photography optional</li></ul><div class="price">From $150 <small>/ hour</small></div><a class="cta" href="#book" style="margin-top:14px;width:100%;text-align:center">Book This</a></div>
+      <div class="card"><img class="cardphoto" src="photos/boat-sunset.jpg" alt="Boat tour at sunset on the Gulf" loading="lazy"><span class="badge">CHILL</span><h3>Boat Tours</h3><p>Sit back with the whole crew and let the Gulf do the work.</p><ul><li>1 & 2 hour tours</li><li>Great for families</li><li>Safety gear provided</li><li>Photo package optional</li></ul><div class="price">Call for pricing</div><a class="cta" href="#book" style="margin-top:14px;width:100%;text-align:center">Book This</a></div>
     </div>
   </div>
 </section>
 
-<section class="section section-dark" id="waterline">
+<section class="alt" id="how">
   <div class="wrap">
-    <p class="eyebrow">02 · waterline crops</p>
-    <h2 class="section-title display">Detail crops over contour lines.</h2>
-    <p class="section-sub">The visual system is a cinematic tide chart: dark harbor navy, chart paper contrast, and sparse flare-orange navigation cues.</p>
-    <div class="split-showcase">
-      <figure class="crop-block">
-        <img src="https://images.unsplash.com/photo-1569263979104-865ab7cd8d13?auto=format&fit=crop&w=1400&q=80" alt="Jet ski rider cutting across open water in Panama City Beach" loading="lazy">
-        <figcaption class="crop-label"><strong>Crop 02 / harbor texture</strong>Full-bleed detail imagery framed like a chart extract, not a marketing card.</figcaption>
-      </figure>
-      <aside class="fact-block">
-        <p class="fact-label"><strong>Verified frame</strong>Booking language is framed as harbor check-in, with contour overlays replacing gradients and app-like placeholders.</p>
-      </aside>
+    <h2 class="sec">Book In Seconds</h2>
+    <p class="sub">Three steps between you and the open water.</p>
+    <div class="grid3">
+      <div class="step"><div class="n">1</div><div><h3>Pick Time & Date</h3><p style="color:var(--muted);font-size:.93rem">Same-day bookings available, with day and sunset tour options.</p></div></div>
+      <div class="step"><div class="n">2</div><div><h3>Select Your Ski</h3><p style="color:var(--muted);font-size:.93rem">Brand-new Yamaha VX Deluxe — the best skis on the market.</p></div></div>
+      <div class="step"><div class="n">3</div><div><h3>Ride Away</h3><p style="color:var(--muted);font-size:.93rem">Instant confirmation. Show up, gear up, throttle out.</p></div></div>
     </div>
   </div>
 </section>
 
-<section class="section section-dark" id="checkin">
-  <div class="wrap checkin">
-    <div class="checkin-copy">
-      <p class="eyebrow">03 · check-in flow</p>
-      <h2 class="section-title display">Book like a harbor desk.</h2>
-      <p class="section-sub">The conversion path is structured as a numbered check-in log instead of repeating identical cards.</p>
-    </div>
-    <div class="checkin-steps">
-      <div class="step-row">
-        <div class="step-num">01</div>
-        <div class="step-copy"><h3>Mark your hour</h3><p>Choose the ride time you want at the Panama City Beach dock.</p></div>
-      </div>
-      <div class="step-row">
-        <div class="step-num">02</div>
-        <div class="step-copy"><h3>Leave your contact</h3><p>StarBot or the form captures the call-back info for the harbor office.</p></div>
-      </div>
-      <div class="step-row">
-        <div class="step-num">03</div>
-        <div class="step-copy"><h3>Confirm with Star</h3><p>The demo stores the request locally while showing how a real check-in flow could look.</p></div>
+<section id="fleet">
+  <div class="wrap">
+    <div class="fleet">
+      <h3>The Fleet — Brand-New Yamaha VX Deluxe</h3>
+      <p>We don't rent beaters. Every ski on the dock is a current-year Yamaha VX Deluxe — stable, quick, and comfortable for two riders.</p>
+      <div class="grid4">
+        <div class="card"><h3>TR-1 Engine</h3><p>Strong punch off the line, smooth cruise.</p></div>
+        <div class="card"><h3>2 Riders</h3><p>Grab your partner in crime. Weight limit applies.</p></div>
+        <div class="card"><h3>Island Runs</h3><p>Ride to the nearby island — ask StarBot how.</p></div>
+        <div class="card"><h3>Bluetooth Audio</h3><p>Your playlist on the water. Yes, the skis have speakers.</p></div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section" id="faq">
-  <div class="wrap faq-book">
-    <div class="faq-list">
-      <div class="faq-item">
-        <h3>What facts are locked?</h3>
-        <p>Only these are used: Panama City Beach, $150 per hour, 4.9/5 rating, and 1,900+ riders.</p>
+<section class="alt" id="why">
+  <div class="wrap">
+    <h2 class="sec">Why Ride With Star</h2>
+    <p class="sub">1,900+ happy customers and a 4.9/5 rating — here's what that buys you.</p>
+    <div class="grid4">
+      <div class="card"><h3>Bad Weather Protection</h3><p>Weather kills your slot? We rebook or refund. Simple.</p></div>
+      <div class="card"><h3>Safety Gear Included</h3><p>Life jackets and instruction with every rental. Zero experience needed.</p></div>
+      <div class="card"><h3>Photography Available</h3><p>Optional photo package so the day follows you home.</p></div>
+      <div class="card"><h3>Same-Day Booking</h3><p>Spontaneous? Good. Get on the water within the hour.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="gallery" class="alt">
+  <div class="wrap">
+    <h2 class="sec">Out On The Water</h2>
+    <p class="sub">Real riders, real Gulf — a sample of a day with Star.</p>
+    <div class="grid3">
+      <div class="ph"><img src="photos/gallery-family.jpg" alt="Family riding together on the open water" loading="lazy"></div>
+      <div class="ph"><img src="photos/gallery-open-water.jpg" alt="Jet skis running across open water" loading="lazy"></div>
+      <div class="ph"><img src="photos/gallery-rider-pose.jpg" alt="Rider posing on a Yamaha VX Deluxe" loading="lazy"></div>
+      <div class="ph"><img src="photos/gallery-group-portrait.jpg" alt="Group of riders at the dock" loading="lazy"></div>
+      <div class="ph"><img src="photos/fleet-lineup.webp" alt="Star Jet Ski fleet lineup on the sand" loading="lazy"></div>
+      <div class="ph"><img src="photos/rider-closeup.jpg" alt="Close-up of a rider geared up and smiling" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <h2 class="sec">Quick Answers</h2>
+    <p class="sub">The stuff everyone asks before riding. StarBot knows the rest.</p>
+    <div class="grid2">
+      <div>
+        <details><summary>How old do you have to be to rent?</summary><p>Riders must be 16+ with a valid ID to operate. Younger riders can ride along with an adult.</p></details>
+        <details><summary>Do I need a boating license?</summary><p>If you were born on or after Jan 1, 1988, Florida requires a Temporary Boating Certificate — you can complete it online in about 20 minutes before you ride.</p></details>
+        <details><summary>Is there a security deposit?</summary><p>Yes, a refundable deposit applies at check-in. No surprises — it's returned when the ski comes back healthy.</p></details>
+        <details><summary>Is this guided?</summary><p>Rides are open-water (your rules within the riding area); Tours follow a certified guide. Both include safety gear.</p></details>
       </div>
-      <div class="faq-item">
-        <h3>Is this a live company site?</h3>
-        <p>No. This is an art-directed demo showing what a tighter booking experience could look like for Star Jet Ski Rentals.</p>
-      </div>
-      <div class="faq-item">
-        <h3>What is StarBot doing here?</h3>
-        <p>The assistant remains wired exactly as before; only the outer chrome has been restyled as a harbor office window.</p>
+      <div>
+        <details><summary>What if it storms?</summary><p>Bad Weather Protection: we rebook you or refund you. Your slot isn't lost to a squall.</p></details>
+        <details><summary>How many people per ski?</summary><p>Two riders max per jet ski, within the weight limit. Ask StarBot for details when you book.</p></details>
+        <details><summary>Do you take walk-ins?</summary><p>When we have skis on the dock, yes — but same-day online booking locks your slot so you're not waiting on the sand.</p></details>
+        <details><summary>Can we switch riders mid-session?</summary><p>Yes — come back to the dock and swap riders during your rental.</p></details>
       </div>
     </div>
-    <div class="book-panel" id="book">
-      <p class="eyebrow">04 · booking form</p>
-      <h2 class="section-title display" style="font-size:clamp(1.8rem,4vw,3.2rem)">Harbor check-in</h2>
-      <p class="section-sub">Same demo behavior, sharper presentation. Prefer voice? Call the harbor desk or use StarBot.</p>
-      <div class="meta">
-        <div><strong>Phone</strong>850.640.6093</div>
-        <div><strong>Location</strong>Panama City Beach, FL</div>
-        <div><strong>Rate</strong>$150 per hour</div>
-        <div><strong>Proof</strong>4.9/5 · 1,900+ riders</div>
+  </div>
+</section>
+
+<section id="book">
+  <div class="wrap">
+    <div class="grid2">
+      <div>
+        <h2 class="sec">Lock In Your Slot</h2>
+        <p class="sub">Same-day bookings welcome. Prefer to talk? Call <b><a href="tel:8506406093" style="color:var(--sea)">850.640.6093</a></b> — or ask StarBot to hold your spot right now.</p>
+        <div class="card" style="margin-top:18px">
+          <h3>📍 Find Us</h3>
+          <p><b>Phone:</b> 850.640.6093<br><b>Location:</b> Panama City Beach, FL<br><b>Hours:</b> Daily 9:00am – 6:00pm<br><b>Requirements:</b> 16+ to operate · Valid ID · Boating cert if born after 1/1/1988</p>
+        </div>
       </div>
-      <form id="lead-form">
+      <form class="card" id="lead-form">
+        <h3 style="margin-bottom:16px">Book My Ride</h3>
         <div class="form-grid">
-          <div><label for="f-name">Name</label><input id="f-name" required placeholder="Your name"></div>
-          <div><label for="f-phone">Phone</label><input id="f-phone" type="tel" required placeholder="(850) 555-0123"></div>
-          <div><label for="f-type">Request</label><select id="f-type" required><option value="">Select</option><option>Jet Ski Rental</option></select></div>
-          <div><label for="f-len">Duration</label><select id="f-len"><option>1 hour</option><option>2 hours</option><option>Flexible</option></select></div>
+          <div><label for="f-name">Name *</label><input id="f-name" required placeholder="Your name"></div>
+          <div><label for="f-phone">Phone *</label><input id="f-phone" type="tel" required placeholder="(850) 555-0123"></div>
+          <div><label for="f-type">Ride Type *</label>
+            <select id="f-type" required><option value="">Select…</option><option>Jet Ski Ride</option><option>Guided Jet Ski Tour</option><option>Boat Tour</option></select></div>
+          <div><label for="f-len">Length</label>
+            <select id="f-len"><option>1 hour</option><option>2 hours</option><option>Half day</option><option>Not sure</option></select></div>
           <div><label for="f-date">Date</label><input id="f-date" type="date"></div>
-          <div><label for="f-time">Time</label><select id="f-time"><option>Morning</option><option>Midday</option><option>Afternoon</option><option>Flexible</option></select></div>
-          <div class="full"><label for="f-notes">Notes</label><textarea id="f-notes" placeholder="Group size or timing notes"></textarea></div>
-          <div class="full"><button class="station-cta" type="submit">Request slot</button></div>
+          <div><label for="f-time">Preferred time</label>
+            <select id="f-time"><option>Morning (9–12)</option><option>Midday (12–3)</option><option>Afternoon (3–6)</option><option>Flexible</option></select></div>
+          <div class="full"><label for="f-notes">Anything else?</label><textarea id="f-notes" rows="2" placeholder="Group size, first-timers, photo package…"></textarea></div>
+          <div class="full"><button class="cta" type="submit" style="width:100%">Request My Slot</button></div>
         </div>
-        <p id="form-ok">Request received — demo booking saved locally for Star follow-up.</p>
+        <p id="form-ok" style="display:none;color:#0a7a4e;font-weight:700;margin-top:12px">✓ Request received — Star will confirm your slot by text. (Demo: bookings captured locally.)</p>
       </form>
     </div>
   </div>
 </section>
 
-<div class="demo-note">Demo website — built by BlueColumn AI to show a possible redesign for Star Jet Ski Rentals. Not affiliated with Star Jet Ski Rentals.</div>
+<div class="demo-note">DEMO WEBSITE — Built by BlueColumn AI (bluecolumn.ai) to show Star Jet Ski Rentals what a modern booking site + AI assistant could look like. Not affiliated with Star Jet Ski Rentals.</div>
 
-<footer class="footer">
+<footer>
   <div class="wrap">
-    <div class="footer-grid">
-      <div>
-        <h4>Star Jet Ski Rentals</h4>
-        <p>Panama City Beach demo site with a constitutional art direction retrofit and harbor check-in framing.</p>
-      </div>
-      <div>
-        <h4>Rate</h4>
-        <ul><li>$150 per hour</li></ul>
-      </div>
-      <div>
-        <h4>Proof</h4>
-        <ul><li>4.9/5 rating</li><li>1,900+ riders</li></ul>
-      </div>
-      <div>
-        <h4>Contact</h4>
-        <ul><li><a href="tel:8506406093">850.640.6093</a></li><li>Panama City Beach, FL</li></ul>
-      </div>
+    <div class="grid4">
+      <div><h4>⭐ Star Jet Ski Rentals</h4><p>Panama City Beach's same-day jet ski & boat tour outfitter. 4.9/5 from 1,900+ riders.</p></div>
+      <div><h4>Rentals</h4><ul><li>Jet Ski Rides</li><li>Guided Jet Ski Tours</li><li>Boat Tours</li></ul></div>
+      <div><h4>Contact</h4><ul><li><a href="tel:8506406093">850.640.6093</a></li><li>Panama City Beach, FL</li><li>Daily 9am–6pm</li></ul></div>
+      <div><h4>Ready?</h4><p>Book in seconds. Ride today.</p><a class="cta" href="#book">Book Now</a></div>
     </div>
-    <div class="footline">2026 · Star Jet Ski Rentals demo · constitutional v2 retrofit</div>
+    <div class="foot-bottom">© 2026 Star Jet Ski Rentals · Panama City Beach, FL</div>
   </div>
 </footer>
 
-<button id="bot-fab">Ask StarBot</button>
+<!-- StarBot -->
+<button id="bot-fab">⭐ Ask StarBot</button>
 <div id="bot-panel" role="dialog" aria-label="StarBot chat">
-  <div class="bot-head"><div class="bot-avatar" id="bot-avatar">SB</div><div><b>StarBot</b><small>Harbor office window</small></div><button id="bot-mute" class="bot-ctl" style="margin-left:auto" title="Voice on">MUTE</button><button id="bot-mic" class="bot-ctl" title="Talk hands-free">VOICE</button><button id="bot-video" class="bot-ctl" title="Live video avatar">VIDEO</button></div>
+  <div class="bot-head"><div class="bot-avatar" id="bot-avatar">⭐</div><div><b>StarBot</b><small>Bookings & answers · 24/7</small></div><button id="bot-mute" class="bot-ctl" style="margin-left:auto" title="Voice on">🔊</button><button id="bot-mic" class="bot-ctl" title="Talk hands-free">🎤</button><button id="bot-video" class="bot-ctl" title="Live video avatar">🎥</button></div>
   <div id="bot-video-wrap" aria-hidden="true"><span id="bot-video-live"><i></i>LIVE</span><video id="bot-video-el" autoplay playsinline muted></video><audio id="bot-simli-audio" autoplay></audio></div>
   <div id="bot-log"></div>
   <div class="bot-input">
-    <input id="bot-in" placeholder="Ask or book" aria-label="Message StarBot">
+    <input id="bot-in" placeholder="Ask or book…" aria-label="Message StarBot">
     <button id="bot-send">Send</button>
   </div>
 </div>
 
 <script>
+/* Lead form — demo captures locally; production wires to booking/CRM backend */
 const F=id=>document.getElementById(id);
 document.getElementById('lead-form').addEventListener('submit',function(e){
   e.preventDefault();
@@ -429,6 +332,10 @@ document.getElementById('lead-form').addEventListener('submit',function(e){
   F('form-ok').style.display='block';e.target.reset();
 });
 
+/* StarBot — Marina-grade agent config: live BlueColumn brain, dynamic
+   ElevenLabs voice (Laura), Simli person avatar, one-voice guard.
+   The guided booking flow stays as a canned pre-hook; knowledge questions
+   go to the live brain first, canned intents are fallback only. */
 function saveLead(b){const leads=JSON.parse(localStorage.getItem('star_leads')||'[]');leads.push({...b,at:new Date().toISOString()});localStorage.setItem('star_leads',JSON.stringify(leads));}
 const booking={};
 let mode=null;
@@ -438,31 +345,34 @@ window.BOT_CFG={
   brainPrefix:'Star Jet Ski Rentals customer question: ',
   faceId:'5fc23ea5-8175-4a82-aaaf-cdd8c88543dc',
   voiceId:'FGY2WhTYpPnrIDTdsKH5',
-  greeting:"StarBot here. I can answer questions live or start your harbor check-in.",
+  greeting:"Hey! StarBot here ⭐ I answer live — pricing, requirements, the island run — or say 'book' and I'll get your slot started. Tap 🎤 to talk hands-free, or 🎥 to see me on video.",
   suggestions:['Book a jet ski','Pricing','What do I need?'],
-  placeholder:'Ask or book',
+  placeholder:'Ask or book…',
   pre:function(txt){
     const low=txt.toLowerCase();
     if(mode==='book-name'){booking.name=txt;mode='book-phone';return{t:"Great, "+txt.split(' ')[0]+" — what's the best phone number for your confirmation text?"};}
-    if(mode==='book-phone'){booking.phone=txt;mode=null;saveLead(booking);return{t:"Locked in. Here's your request:\n• "+(booking.type||'Jet Ski Ride')+" · "+(booking.len||'1 hour')+"\n• "+(booking.time||'flexible time')+(booking.date?(" · "+booking.date):"")+"\n• "+txt+"\n\nStar confirms slots by text during open hours. Want anything else?",opts:["Pricing","What do I need?","No, I'm good"]};}
+    if(mode==='book-phone'){booking.phone=txt;mode=null;saveLead(booking);return{t:"Locked in ⭐ Here's your request:\n• "+(booking.type||'Jet Ski Ride')+" · "+(booking.len||'1 hour')+"\n• "+(booking.time||'flexible time')+(booking.date?(" · "+booking.date):"")+"\n• "+txt+"\n\nStar confirms slots by text — usually within minutes during open hours (9–6). Want anything else?",opts:["Pricing","What do I need?","No, I'm good"]};}
     if(mode==='book-type'){booking.type=txt;mode='book-len';return{t:txt+" — solid pick. How long: 1 hour or 2?"};}
-    if(mode==='book-len'){booking.len=txt;mode='book-date';return{t:"Which day works? Type a date like today, tomorrow, or 9/15, or say flexible."};}
-    if(mode==='book-date'){booking.date=txt;mode='book-time';return{t:"And what time of day?",opts:["Morning","Midday","Afternoon","Flexible"]};}
+    if(mode==='book-len'){booking.len=txt;mode='book-date';return{t:"Which day works? Type a date (like 'today', 'tomorrow', or 9/15) or say flexible."};}
+    if(mode==='book-date'){booking.date=txt;mode='book-time';return{t:"And what time of day?",opts:["Morning (9–12)","Midday (12–3)","Afternoon (3–6)","Flexible"]};}
     if(mode==='book-time'){booking.time=txt;mode='book-name';return{t:"Last thing — what's your name?"};}
-    if(low.includes('book')||low.includes('reserve')||low.includes('rent')){mode='book-type';return{t:"Let's do it. What are you booking?",opts:["Jet Ski Ride"]};}
+    if(low.includes('book')||low.includes('reserve')||low.includes('rent')){mode='book-type';return{t:"Let's do it. What are you riding — Jet Ski Ride, Guided Tour, or Boat Tour?",opts:["Jet Ski Ride","Guided Jet Ski Tour","Boat Tour"]};}
     return null;
   },
   intents:[
-    {k:['price','cost','how much'],t:"Jet ski rentals are $150 per hour. Want me to start your check-in?"},
-    {k:['need','license','certifi','age','old'],t:"I can help with booking questions here, and Star can confirm requirements directly when they follow up."},
-    {k:['phone','call','human','talk'],t:"You can reach Star directly at 850.640.6093."},
-    {k:['thank'],t:"Anytime. Ready when you are."},
-    {k:['hello','hi','hey'],t:"Hello. Ask about pricing or say book to start your check-in."}
+    {k:['price','cost','how much'],t:"Jet ski sessions start at $150/hour — brand-new Yamaha VX Deluxe, safety gear included. Guided tours and boat tours are priced by the slot. Want me to start a booking?"},
+    {k:['need','license','certifi','age','old'],t:"To ride: 16+ with a valid ID. Born on or after Jan 1, 1988? Florida needs a Temporary Boating Certificate — 20 minutes online before you ride. Life jackets included, no experience needed."},
+    {k:['island'],t:"Yes — you can run the skis to the nearby island on open rides. It's the favorite run."},
+    {k:['weather','storm','rain'],t:"Bad Weather Protection: if weather kills your slot, we rebook or refund. You're never stuck."},
+    {k:['speaker','music','bluetooth'],t:"Yep — the Yamahas have Bluetooth speakers. Bring the playlist."},
+    {k:['phone','call','human','talk'],t:"You can reach Star directly at 850.640.6093, daily 9am–6pm. Or leave your number here and they'll text you."},
+    {k:['thank'],t:"Anytime ⭐ See you on the water!"},
+    {k:['hello','hi','hey'],t:"Hey! Ask me anything — pricing, requirements, the island run — or say 'book' and I'll get your slot started."}
   ],
-  fallback:"I can help with pricing or getting your request started. Star's crew is at 850.640.6093."
+  fallback:"I can help with pricing, requirements, or getting you booked. For anything else, Star's crew is at 850.640.6093 daily 9–6."
 };
 </script>
-<script src="vendor/simli-client.js?v=20260916a"></script>
-<script src="marina-agent.js?v=20260916a"></script>
+<script src="vendor/simli-client.js?v=20260910a"></script>
+<script src="marina-agent.js?v=20260910a"></script>
 </body>
 </html>

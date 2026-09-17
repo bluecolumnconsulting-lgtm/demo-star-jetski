@@ -97,7 +97,8 @@ footer a{color:#cfe8f0;text-decoration:none}
 #bot-panel{position:fixed;bottom:80px;right:22px;width:340px;max-width:calc(100vw - 32px);background:#fff;border-radius:14px;box-shadow:0 12px 40px rgba(0,0,0,.3);z-index:101;display:none;flex-direction:column;overflow:hidden}
 #bot-panel.open{display:flex}
 .bot-head{background:linear-gradient(135deg,var(--deep),var(--turq));color:#fff;padding:14px 16px;display:flex;align-items:center;gap:10px}
-.bot-avatar{width:34px;height:34px;border-radius:50%;background:var(--sun);display:flex;align-items:center;justify-content:center}
+.bot-avatar{width:34px;height:34px;border-radius:50%;background:var(--sun);display:flex;align-items:center;justify-content:center;object-fit:cover;object-position:center 20%}
+.bot-fab-face{width:38px;height:38px;border-radius:50%;object-fit:cover;object-position:center 20%;vertical-align:middle;margin-right:10px;border:2px solid rgba(255,255,255,.85);box-shadow:0 2px 8px rgba(0,0,0,.3)}
 .bot-head small{display:block;opacity:.8;font-weight:400}
 #bot-log{padding:14px;height:300px;overflow-y:auto;background:#f2f9fa;display:flex;flex-direction:column;gap:8px}
 .msg{max-width:85%;padding:9px 13px;border-radius:12px;font-size:.9rem;white-space:pre-line}
@@ -310,9 +311,9 @@ footer a{color:#cfe8f0;text-decoration:none}
 </footer>
 
 <!-- StarBot -->
-<button id="bot-fab">Ask StarBot</button>
+<button id="bot-fab"><img class="bot-fab-face" src="bot-face.png" alt="StarBot">Ask StarBot</button>
 <div id="bot-panel" role="dialog" aria-label="StarBot chat">
- <div class="bot-head"><div class="bot-avatar" id="bot-avatar"></div><div><b>StarBot</b><small>Bookings & answers · 24/7</small></div><button id="bot-mute" class="bot-ctl" style="margin-left:auto" title="Voice on"></button><button id="bot-mic" class="bot-ctl" title="Talk hands-free"></button><button id="bot-video" class="bot-ctl" title="Live video avatar"></button></div>
+ <div class="bot-head"><img class="bot-avatar" id="bot-avatar" src="bot-face.png" alt="StarBot"><div><b>StarBot</b><small>Bookings & answers · 24/7</small></div><button id="bot-mute" class="bot-ctl" style="margin-left:auto" title="Voice on"></button><button id="bot-mic" class="bot-ctl" title="Talk hands-free"></button><button id="bot-video" class="bot-ctl" title="Live video avatar"></button></div>
  <div id="bot-video-wrap" aria-hidden="true"><span id="bot-video-live"><i></i>LIVE</span><video id="bot-video-el" autoplay playsinline muted></video><audio id="bot-simli-audio" autoplay></audio></div>
  <div id="bot-log"></div>
  <div class="bot-input">

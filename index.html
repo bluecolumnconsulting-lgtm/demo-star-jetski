@@ -11,8 +11,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
-  --deep:#04455c; --sea:#0a7fa8; --turq:#19b8c4; --sun:#ffb200; --sand:#fff8ec;
-  --ink:#123243; --muted:#5c7b8a; --card:#ffffff; --line:#dcebef;
+ --deep:#04455c; --sea:#0a7fa8; --turq:#19b8c4; --sun:#ffb200; --sand:#fff8ec;
+ --ink:#123243; --muted:#5c7b8a; --card:#ffffff; --line:#dcebef;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -36,7 +36,7 @@ nav.main a.navlink{text-decoration:none;color:var(--ink);font-weight:600;font-si
 .cta.ghost{background:transparent;color:#fff;border:2px solid #fff}
 
 header.hero{background:var(--deep);color:#fff;padding:74px 0 80px;position:relative;overflow:hidden}
-header.hero::before{content:"";position:absolute;bottom:-2px;left:0;right:0;height:60px;background:var(--sand);border-radius:50% 50% 0 0/100% 100% 0 0;max-width:140%;width:120%;left:-10%}
+header.hero::before{content:;position:absolute;bottom:-2px;left:0;right:0;height:60px;background:var(--sand);border-radius:50% 50% 0 0/100% 100% 0 0;max-width:140%;width:120%;left:-10%}
 header.hero .wrap{position:relative;z-index:1}
 .hero-chips{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:22px}
 .chip{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);border-radius:6px;padding:5px 14px;font-size:.8rem;font-weight:600}
@@ -73,7 +73,7 @@ section.alt{background:#fff}
 .fleet .card{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.18);color:#fff}
 .fleet .card p,.fleet .card ul{color:#cfe8f0}
 .fleet .card ul{list-style:none;margin-left:0}
-.fleet .card ul li::before{content:"✓ ";color:var(--sun);font-weight:800}
+.fleet .card ul li::before{content:;color:var(--sun);font-weight:800}
 
 details{background:#fff;border:1px solid var(--line);border-radius:10px;margin-bottom:10px;padding:16px 20px}
 details summary{font-weight:700;cursor:pointer}
@@ -127,249 +127,249 @@ footer a{color:#cfe8f0;text-decoration:none}
 @keyframes bdot{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
 
 @media(max-width:700px){
-  nav.main ul{display:none}
-  .topbar .wrap{flex-direction:column;gap:4px;font-size:.78rem;text-align:center}
-  .hero-ctas a.cta{flex:1;min-width:140px;text-align:center}
-  #bot-fab{bottom:calc(14px + env(safe-area-inset-bottom));right:14px;padding:10px 14px;font-size:.88rem}
-  #bot-panel{bottom:calc(70px + env(safe-area-inset-bottom));max-height:72vh}
-  #bot-log{height:min(280px,48vh)}
-  #bot-fab{right:14px !important}
+ nav.main ul{display:none}
+ .topbar .wrap{flex-direction:column;gap:4px;font-size:.78rem;text-align:center}
+ .hero-ctas a.cta{flex:1;min-width:140px;text-align:center}
+ #bot-fab{bottom:calc(14px + env(safe-area-inset-bottom));right:14px;padding:10px 14px;font-size:.88rem}
+ #bot-panel{bottom:calc(70px + env(safe-area-inset-bottom));max-height:72vh}
+ #bot-log{height:min(280px,48vh)}
+ #bot-fab{right:14px !important}
 }
 </style>
 </head>
 <body>
 
 <div class="topbar">
-  <div class="wrap">
-    <div><b>4.9/5</b> from 1,900+ riders · Same-day bookings</div>
-    <div>Open Daily 9am–6pm · Panama City Beach · <a href="tel:8506406093">850.640.6093</a></div>
-  </div>
+ <div class="wrap">
+ <div><b>4.9/5</b> from 1,900+ riders · Same-day bookings</div>
+ <div>Open Daily 9am–6pm · Panama City Beach · <a href="tel:8506406093">850.640.6093</a></div>
+ </div>
 </div>
 
 <nav class="main">
-  <div class="wrap">
-    <div class="logo">⭐ STAR <span>JET SKI</span></div>
-    <ul>
-      <li><a class="navlink" href="#rentals">Rentals</a></li>
-      <li><a class="navlink" href="#fleet">The Fleet</a></li>
-      <li><a class="navlink" href="#faq">FAQ</a></li>
-    </ul>
-    <a class="cta" href="#book">Book Now</a>
-  </div>
+ <div class="wrap">
+ <div class="logo">STAR <span>JET SKI</span></div>
+ <ul>
+ <li><a class="navlink" href="#rentals">Rentals</a></li>
+ <li><a class="navlink" href="#fleet">The Fleet</a></li>
+ <li><a class="navlink" href="#faq">FAQ</a></li>
+ </ul>
+ <a class="cta" href="#book">Book Now</a>
+ </div>
 </nav>
 
 <header class="hero">
-  <div class="wrap">
-    <div class="hero-chips">
-      <span class="chip">⭐ 4.9/5 Rated</span>
-      <span class="chip">🛟 Certified Guides</span>
-      <span class="chip">⚡ Instant Confirmation</span>
-      <span class="chip">🆕 Brand-New Yamahas</span>
-    </div>
-    <h1>On The Water <em>Within The Hour.</em></h1>
-    <p class="lead">Brand-new Yamaha VX Deluxe jet skis, same-day bookings, and the best riding water in Panama City Beach. Book in seconds — ride today.</p>
-    <div class="hero-ctas">
-      <a class="cta" href="#book">Book My Jet Ski</a>
-      <a class="cta ghost" href="tel:8506406093">Call 850.640.6093</a>
-    </div>
-  </div>
+ <div class="wrap">
+ <div class="hero-chips">
+ <span class="chip">4.9/5 Rated</span>
+ <span class="chip">Certified Guides</span>
+ <span class="chip">Instant Confirmation</span>
+ <span class="chip">Brand-New Yamahas</span>
+ </div>
+ <h1>On The Water <em>Within The Hour.</em></h1>
+ <p class="lead">Brand-new Yamaha VX Deluxe jet skis, same-day bookings, and the best riding water in Panama City Beach. Book in seconds — ride today.</p>
+ <div class="hero-ctas">
+ <a class="cta" href="#book">Book My Jet Ski</a>
+ <a class="cta ghost" href="tel:8506406093">Call 850.640.6093</a>
+ </div>
+ </div>
 </header>
 
 <section id="rentals">
-  <div class="wrap">
-    <h2 class="sec">Pick Your Ride</h2>
-    <p class="sub">Hourly sessions daily from 9am to 6pm. Same-day bookings accepted — safety gear always included.</p>
-    <div class="grid3">
-      <div class="card"><img class="cardphoto" src="photos/action-speed.webp" alt="Riders carving open water on Yamaha VX Deluxe skis" loading="lazy"><span class="badge">MOST POPULAR</span><h3>Jet Ski Rides</h3><p>Open water, your rules. Choose 1 or 2-hour sessions.</p><ul><li>Hourly sessions</li><li>Same-day booking OK</li><li>Safety gear provided</li><li>Optional photo package</li></ul><div class="price">From $150 <small>/ hour</small></div><a class="cta" href="#book" style="margin-top:14px;width:100%;text-align:center">Book This</a></div>
-      <div class="card"><img class="cardphoto" src="photos/tour-shallow.webp" alt="Guided jet ski tour through shallow Gulf water" loading="lazy"><span class="badge">GUIDED</span><h3>Jet Ski Tours</h3><p>Follow the guide — dolphin country, shells, and island stops.</p><ul><li>1 & 2 hour tours</li><li>Daily 9am–6pm</li><li>No experience needed</li><li>Pro photography optional</li></ul><div class="price">From $150 <small>/ hour</small></div><a class="cta" href="#book" style="margin-top:14px;width:100%;text-align:center">Book This</a></div>
-      <div class="card"><img class="cardphoto" src="photos/boat-sunset.jpg" alt="Boat tour at sunset on the Gulf" loading="lazy"><span class="badge">CHILL</span><h3>Boat Tours</h3><p>Sit back with the whole crew and let the Gulf do the work.</p><ul><li>1 & 2 hour tours</li><li>Great for families</li><li>Safety gear provided</li><li>Photo package optional</li></ul><div class="price">Call for pricing</div><a class="cta" href="#book" style="margin-top:14px;width:100%;text-align:center">Book This</a></div>
-    </div>
-  </div>
+ <div class="wrap">
+ <h2 class="sec">Pick Your Ride</h2>
+ <p class="sub">Hourly sessions daily from 9am to 6pm. Same-day bookings accepted — safety gear always included.</p>
+ <div class="grid3">
+ <div class="card"><img class="cardphoto" src="photos/action-speed.webp" alt="Riders carving open water on Yamaha VX Deluxe skis" loading="lazy"><span class="badge">MOST POPULAR</span><h3>Jet Ski Rides</h3><p>Open water, your rules. Choose 1 or 2-hour sessions.</p><ul><li>Hourly sessions</li><li>Same-day booking OK</li><li>Safety gear provided</li><li>Optional photo package</li></ul><div class="price">From $150 <small>/ hour</small></div><a class="cta" href="#book" style="margin-top:14px;width:100%;text-align:center">Book This</a></div>
+ <div class="card"><img class="cardphoto" src="photos/tour-shallow.webp" alt="Guided jet ski tour through shallow Gulf water" loading="lazy"><span class="badge">GUIDED</span><h3>Jet Ski Tours</h3><p>Follow the guide — dolphin country, shells, and island stops.</p><ul><li>1 & 2 hour tours</li><li>Daily 9am–6pm</li><li>No experience needed</li><li>Pro photography optional</li></ul><div class="price">From $150 <small>/ hour</small></div><a class="cta" href="#book" style="margin-top:14px;width:100%;text-align:center">Book This</a></div>
+ <div class="card"><img class="cardphoto" src="photos/boat-sunset.jpg" alt="Boat tour at sunset on the Gulf" loading="lazy"><span class="badge">CHILL</span><h3>Boat Tours</h3><p>Sit back with the whole crew and let the Gulf do the work.</p><ul><li>1 & 2 hour tours</li><li>Great for families</li><li>Safety gear provided</li><li>Photo package optional</li></ul><div class="price">Call for pricing</div><a class="cta" href="#book" style="margin-top:14px;width:100%;text-align:center">Book This</a></div>
+ </div>
+ </div>
 </section>
 
 <section class="alt" id="how">
-  <div class="wrap">
-    <h2 class="sec">Book In Seconds</h2>
-    <p class="sub">Three steps between you and the open water.</p>
-    <div class="grid3">
-      <div class="step"><div class="n">1</div><div><h3>Pick Time & Date</h3><p style="color:var(--muted);font-size:.93rem">Same-day bookings available, with day and sunset tour options.</p></div></div>
-      <div class="step"><div class="n">2</div><div><h3>Select Your Ski</h3><p style="color:var(--muted);font-size:.93rem">Brand-new Yamaha VX Deluxe — the best skis on the market.</p></div></div>
-      <div class="step"><div class="n">3</div><div><h3>Ride Away</h3><p style="color:var(--muted);font-size:.93rem">Instant confirmation. Show up, gear up, throttle out.</p></div></div>
-    </div>
-  </div>
+ <div class="wrap">
+ <h2 class="sec">Book In Seconds</h2>
+ <p class="sub">Three steps between you and the open water.</p>
+ <div class="grid3">
+ <div class="step"><div class="n">1</div><div><h3>Pick Time & Date</h3><p style="color:var(--muted);font-size:.93rem">Same-day bookings available, with day and sunset tour options.</p></div></div>
+ <div class="step"><div class="n">2</div><div><h3>Select Your Ski</h3><p style="color:var(--muted);font-size:.93rem">Brand-new Yamaha VX Deluxe — the best skis on the market.</p></div></div>
+ <div class="step"><div class="n">3</div><div><h3>Ride Away</h3><p style="color:var(--muted);font-size:.93rem">Instant confirmation. Show up, gear up, throttle out.</p></div></div>
+ </div>
+ </div>
 </section>
 
 <section id="fleet">
-  <div class="wrap">
-    <div class="fleet">
-      <h3>The Fleet — Brand-New Yamaha VX Deluxe</h3>
-      <p>We don't rent beaters. Every ski on the dock is a current-year Yamaha VX Deluxe — stable, quick, and comfortable for two riders.</p>
-      <div class="grid4">
-        <div class="card"><h3>TR-1 Engine</h3><p>Strong punch off the line, smooth cruise.</p></div>
-        <div class="card"><h3>2 Riders</h3><p>Grab your partner in crime. Weight limit applies.</p></div>
-        <div class="card"><h3>Island Runs</h3><p>Ride to the nearby island — ask StarBot how.</p></div>
-        <div class="card"><h3>Bluetooth Audio</h3><p>Your playlist on the water. Yes, the skis have speakers.</p></div>
-      </div>
-    </div>
-  </div>
+ <div class="wrap">
+ <div class="fleet">
+ <h3>The Fleet — Brand-New Yamaha VX Deluxe</h3>
+ <p>We don't rent beaters. Every ski on the dock is a current-year Yamaha VX Deluxe — stable, quick, and comfortable for two riders.</p>
+ <div class="grid4">
+ <div class="card"><h3>TR-1 Engine</h3><p>Strong punch off the line, smooth cruise.</p></div>
+ <div class="card"><h3>2 Riders</h3><p>Grab your partner in crime. Weight limit applies.</p></div>
+ <div class="card"><h3>Island Runs</h3><p>Ride to the nearby island — ask StarBot how.</p></div>
+ <div class="card"><h3>Bluetooth Audio</h3><p>Your playlist on the water. Yes, the skis have speakers.</p></div>
+ </div>
+ </div>
+ </div>
 </section>
 
 <section class="alt" id="why">
-  <div class="wrap">
-    <h2 class="sec">Why Ride With Star</h2>
-    <p class="sub">1,900+ happy customers and a 4.9/5 rating — here's what that buys you.</p>
-    <div class="grid4">
-      <div class="card"><h3>Bad Weather Protection</h3><p>Weather kills your slot? We rebook or refund. Simple.</p></div>
-      <div class="card"><h3>Safety Gear Included</h3><p>Life jackets and instruction with every rental. Zero experience needed.</p></div>
-      <div class="card"><h3>Photography Available</h3><p>Optional photo package so the day follows you home.</p></div>
-      <div class="card"><h3>Same-Day Booking</h3><p>Spontaneous? Good. Get on the water within the hour.</p></div>
-    </div>
-  </div>
+ <div class="wrap">
+ <h2 class="sec">Why Ride With Star</h2>
+ <p class="sub">1,900+ happy customers and a 4.9/5 rating — here's what that buys you.</p>
+ <div class="grid4">
+ <div class="card"><h3>Bad Weather Protection</h3><p>Weather kills your slot? We rebook or refund. Simple.</p></div>
+ <div class="card"><h3>Safety Gear Included</h3><p>Life jackets and instruction with every rental. Zero experience needed.</p></div>
+ <div class="card"><h3>Photography Available</h3><p>Optional photo package so the day follows you home.</p></div>
+ <div class="card"><h3>Same-Day Booking</h3><p>Spontaneous? Good. Get on the water within the hour.</p></div>
+ </div>
+ </div>
 </section>
 
 <section id="gallery" class="alt">
-  <div class="wrap">
-    <h2 class="sec">Out On The Water</h2>
-    <p class="sub">Real riders, real Gulf — a sample of a day with Star.</p>
-    <div class="grid3">
-      <div class="ph"><img src="photos/gallery-family.jpg" alt="Family riding together on the open water" loading="lazy"></div>
-      <div class="ph"><img src="photos/gallery-open-water.jpg" alt="Jet skis running across open water" loading="lazy"></div>
-      <div class="ph"><img src="photos/gallery-rider-pose.jpg" alt="Rider posing on a Yamaha VX Deluxe" loading="lazy"></div>
-      <div class="ph"><img src="photos/gallery-group-portrait.jpg" alt="Group of riders at the dock" loading="lazy"></div>
-      <div class="ph"><img src="photos/fleet-lineup.webp" alt="Star Jet Ski fleet lineup on the sand" loading="lazy"></div>
-      <div class="ph"><img src="photos/rider-closeup.jpg" alt="Close-up of a rider geared up and smiling" loading="lazy"></div>
-    </div>
-  </div>
+ <div class="wrap">
+ <h2 class="sec">Out On The Water</h2>
+ <p class="sub">Real riders, real Gulf — a sample of a day with Star.</p>
+ <div class="grid3">
+ <div class="ph"><img src="photos/gallery-family.jpg" alt="Family riding together on the open water" loading="lazy"></div>
+ <div class="ph"><img src="photos/gallery-open-water.jpg" alt="Jet skis running across open water" loading="lazy"></div>
+ <div class="ph"><img src="photos/gallery-rider-pose.jpg" alt="Rider posing on a Yamaha VX Deluxe" loading="lazy"></div>
+ <div class="ph"><img src="photos/gallery-group-portrait.jpg" alt="Group of riders at the dock" loading="lazy"></div>
+ <div class="ph"><img src="photos/fleet-lineup.webp" alt="Star Jet Ski fleet lineup on the sand" loading="lazy"></div>
+ <div class="ph"><img src="photos/rider-closeup.jpg" alt="Close-up of a rider geared up and smiling" loading="lazy"></div>
+ </div>
+ </div>
 </section>
 
 <section id="faq">
-  <div class="wrap">
-    <h2 class="sec">Quick Answers</h2>
-    <p class="sub">The stuff everyone asks before riding. StarBot knows the rest.</p>
-    <div class="grid2">
-      <div>
-        <details><summary>How old do you have to be to rent?</summary><p>Riders must be 16+ with a valid ID to operate. Younger riders can ride along with an adult.</p></details>
-        <details><summary>Do I need a boating license?</summary><p>If you were born on or after Jan 1, 1988, Florida requires a Temporary Boating Certificate — you can complete it online in about 20 minutes before you ride.</p></details>
-        <details><summary>Is there a security deposit?</summary><p>Yes, a refundable deposit applies at check-in. No surprises — it's returned when the ski comes back healthy.</p></details>
-        <details><summary>Is this guided?</summary><p>Rides are open-water (your rules within the riding area); Tours follow a certified guide. Both include safety gear.</p></details>
-      </div>
-      <div>
-        <details><summary>What if it storms?</summary><p>Bad Weather Protection: we rebook you or refund you. Your slot isn't lost to a squall.</p></details>
-        <details><summary>How many people per ski?</summary><p>Two riders max per jet ski, within the weight limit. Ask StarBot for details when you book.</p></details>
-        <details><summary>Do you take walk-ins?</summary><p>When we have skis on the dock, yes — but same-day online booking locks your slot so you're not waiting on the sand.</p></details>
-        <details><summary>Can we switch riders mid-session?</summary><p>Yes — come back to the dock and swap riders during your rental.</p></details>
-      </div>
-    </div>
-  </div>
+ <div class="wrap">
+ <h2 class="sec">Quick Answers</h2>
+ <p class="sub">The stuff everyone asks before riding. StarBot knows the rest.</p>
+ <div class="grid2">
+ <div>
+ <details><summary>How old do you have to be to rent?</summary><p>Riders must be 16+ with a valid ID to operate. Younger riders can ride along with an adult.</p></details>
+ <details><summary>Do I need a boating license?</summary><p>If you were born on or after Jan 1, 1988, Florida requires a Temporary Boating Certificate — you can complete it online in about 20 minutes before you ride.</p></details>
+ <details><summary>Is there a security deposit?</summary><p>Yes, a refundable deposit applies at check-in. No surprises — it's returned when the ski comes back healthy.</p></details>
+ <details><summary>Is this guided?</summary><p>Rides are open-water (your rules within the riding area); Tours follow a certified guide. Both include safety gear.</p></details>
+ </div>
+ <div>
+ <details><summary>What if it storms?</summary><p>Bad Weather Protection: we rebook you or refund you. Your slot isn't lost to a squall.</p></details>
+ <details><summary>How many people per ski?</summary><p>Two riders max per jet ski, within the weight limit. Ask StarBot for details when you book.</p></details>
+ <details><summary>Do you take walk-ins?</summary><p>When we have skis on the dock, yes — but same-day online booking locks your slot so you're not waiting on the sand.</p></details>
+ <details><summary>Can we switch riders mid-session?</summary><p>Yes — come back to the dock and swap riders during your rental.</p></details>
+ </div>
+ </div>
+ </div>
 </section>
 
 <section id="book">
-  <div class="wrap">
-    <div class="grid2">
-      <div>
-        <h2 class="sec">Lock In Your Slot</h2>
-        <p class="sub">Same-day bookings welcome. Prefer to talk? Call <b><a href="tel:8506406093" style="color:var(--sea)">850.640.6093</a></b> — or ask StarBot to hold your spot right now.</p>
-        <div class="card" style="margin-top:18px">
-          <h3>📍 Find Us</h3>
-          <p><b>Phone:</b> 850.640.6093<br><b>Location:</b> Panama City Beach, FL<br><b>Hours:</b> Daily 9:00am – 6:00pm<br><b>Requirements:</b> 16+ to operate · Valid ID · Boating cert if born after 1/1/1988</p>
-        </div>
-      </div>
-      <form class="card" id="lead-form">
-        <h3 style="margin-bottom:16px">Book My Ride</h3>
-        <div class="form-grid">
-          <div><label for="f-name">Name *</label><input id="f-name" required placeholder="Your name"></div>
-          <div><label for="f-phone">Phone *</label><input id="f-phone" type="tel" required placeholder="(850) 555-0123"></div>
-          <div><label for="f-type">Ride Type *</label>
-            <select id="f-type" required><option value="">Select…</option><option>Jet Ski Ride</option><option>Guided Jet Ski Tour</option><option>Boat Tour</option></select></div>
-          <div><label for="f-len">Length</label>
-            <select id="f-len"><option>1 hour</option><option>2 hours</option><option>Half day</option><option>Not sure</option></select></div>
-          <div><label for="f-date">Date</label><input id="f-date" type="date"></div>
-          <div><label for="f-time">Preferred time</label>
-            <select id="f-time"><option>Morning (9–12)</option><option>Midday (12–3)</option><option>Afternoon (3–6)</option><option>Flexible</option></select></div>
-          <div class="full"><label for="f-notes">Anything else?</label><textarea id="f-notes" rows="2" placeholder="Group size, first-timers, photo package…"></textarea></div>
-          <div class="full"><button class="cta" type="submit" style="width:100%">Request My Slot</button></div>
-        </div>
-        <p id="form-ok" style="display:none;color:#0a7a4e;font-weight:700;margin-top:12px">✓ Request received — Star will confirm your slot by text. (Demo: bookings captured locally.)</p>
-      </form>
-    </div>
-  </div>
+ <div class="wrap">
+ <div class="grid2">
+ <div>
+ <h2 class="sec">Lock In Your Slot</h2>
+ <p class="sub">Same-day bookings welcome. Prefer to talk? Call <b><a href="tel:8506406093" style="color:var(--sea)">850.640.6093</a></b> — or ask StarBot to hold your spot right now.</p>
+ <div class="card" style="margin-top:18px">
+ <h3>Find Us</h3>
+ <p><b>Phone:</b> 850.640.6093<br><b>Location:</b> Panama City Beach, FL<br><b>Hours:</b> Daily 9:00am – 6:00pm<br><b>Requirements:</b> 16+ to operate · Valid ID · Boating cert if born after 1/1/1988</p>
+ </div>
+ </div>
+ <form class="card" id="lead-form">
+ <h3 style="margin-bottom:16px">Book My Ride</h3>
+ <div class="form-grid">
+ <div><label for="f-name">Name *</label><input id="f-name" required placeholder="Your name"></div>
+ <div><label for="f-phone">Phone *</label><input id="f-phone" type="tel" required placeholder="(850) 555-0123"></div>
+ <div><label for="f-type">Ride Type *</label>
+ <select id="f-type" required><option value=>Select…</option><option>Jet Ski Ride</option><option>Guided Jet Ski Tour</option><option>Boat Tour</option></select></div>
+ <div><label for="f-len">Length</label>
+ <select id="f-len"><option>1 hour</option><option>2 hours</option><option>Half day</option><option>Not sure</option></select></div>
+ <div><label for="f-date">Date</label><input id="f-date" type="date"></div>
+ <div><label for="f-time">Preferred time</label>
+ <select id="f-time"><option>Morning (9–12)</option><option>Midday (12–3)</option><option>Afternoon (3–6)</option><option>Flexible</option></select></div>
+ <div class="full"><label for="f-notes">Anything else?</label><textarea id="f-notes" rows="2" placeholder="Group size, first-timers, photo package…"></textarea></div>
+ <div class="full"><button class="cta" type="submit" style="width:100%">Request My Slot</button></div>
+ </div>
+ <p id="form-ok" style="display:none;color:#0a7a4e;font-weight:700;margin-top:12px">Request received — Star will confirm your slot by text. (Demo: bookings captured locally.)</p>
+ </form>
+ </div>
+ </div>
 </section>
 
 <div class="demo-note">DEMO WEBSITE — Built by BlueColumn AI (bluecolumn.ai) to show Star Jet Ski Rentals what a modern booking site + AI assistant could look like. Not affiliated with Star Jet Ski Rentals.</div>
 
 <footer>
-  <div class="wrap">
-    <div class="grid4">
-      <div><h4>⭐ Star Jet Ski Rentals</h4><p>Panama City Beach's same-day jet ski & boat tour outfitter. 4.9/5 from 1,900+ riders.</p></div>
-      <div><h4>Rentals</h4><ul><li>Jet Ski Rides</li><li>Guided Jet Ski Tours</li><li>Boat Tours</li></ul></div>
-      <div><h4>Contact</h4><ul><li><a href="tel:8506406093">850.640.6093</a></li><li>Panama City Beach, FL</li><li>Daily 9am–6pm</li></ul></div>
-      <div><h4>Ready?</h4><p>Book in seconds. Ride today.</p><a class="cta" href="#book">Book Now</a></div>
-    </div>
-    <div class="foot-bottom">© 2026 Star Jet Ski Rentals · Panama City Beach, FL</div>
-  </div>
+ <div class="wrap">
+ <div class="grid4">
+ <div><h4>Star Jet Ski Rentals</h4><p>Panama City Beach's same-day jet ski & boat tour outfitter. 4.9/5 from 1,900+ riders.</p></div>
+ <div><h4>Rentals</h4><ul><li>Jet Ski Rides</li><li>Guided Jet Ski Tours</li><li>Boat Tours</li></ul></div>
+ <div><h4>Contact</h4><ul><li><a href="tel:8506406093">850.640.6093</a></li><li>Panama City Beach, FL</li><li>Daily 9am–6pm</li></ul></div>
+ <div><h4>Ready?</h4><p>Book in seconds. Ride today.</p><a class="cta" href="#book">Book Now</a></div>
+ </div>
+ <div class="foot-bottom">© 2026 Star Jet Ski Rentals · Panama City Beach, FL</div>
+ </div>
 </footer>
 
 <!-- StarBot -->
-<button id="bot-fab">⭐ Ask StarBot</button>
+<button id="bot-fab">Ask StarBot</button>
 <div id="bot-panel" role="dialog" aria-label="StarBot chat">
-  <div class="bot-head"><div class="bot-avatar" id="bot-avatar">⭐</div><div><b>StarBot</b><small>Bookings & answers · 24/7</small></div><button id="bot-mute" class="bot-ctl" style="margin-left:auto" title="Voice on">🔊</button><button id="bot-mic" class="bot-ctl" title="Talk hands-free">🎤</button><button id="bot-video" class="bot-ctl" title="Live video avatar">🎥</button></div>
-  <div id="bot-video-wrap" aria-hidden="true"><span id="bot-video-live"><i></i>LIVE</span><video id="bot-video-el" autoplay playsinline muted></video><audio id="bot-simli-audio" autoplay></audio></div>
-  <div id="bot-log"></div>
-  <div class="bot-input">
-    <input id="bot-in" placeholder="Ask or book…" aria-label="Message StarBot">
-    <button id="bot-send">Send</button>
-  </div>
+ <div class="bot-head"><div class="bot-avatar" id="bot-avatar"></div><div><b>StarBot</b><small>Bookings & answers · 24/7</small></div><button id="bot-mute" class="bot-ctl" style="margin-left:auto" title="Voice on"></button><button id="bot-mic" class="bot-ctl" title="Talk hands-free"></button><button id="bot-video" class="bot-ctl" title="Live video avatar"></button></div>
+ <div id="bot-video-wrap" aria-hidden="true"><span id="bot-video-live"><i></i>LIVE</span><video id="bot-video-el" autoplay playsinline muted></video><audio id="bot-simli-audio" autoplay></audio></div>
+ <div id="bot-log"></div>
+ <div class="bot-input">
+ <input id="bot-in" placeholder="Ask or book…" aria-label="Message StarBot">
+ <button id="bot-send">Send</button>
+ </div>
 </div>
 
 <script>
 /* Lead form — demo captures locally; production wires to booking/CRM backend */
 const F=id=>document.getElementById(id);
 document.getElementById('lead-form').addEventListener('submit',function(e){
-  e.preventDefault();
-  const lead={name:F('f-name').value,phone:F('f-phone').value,type:F('f-type').value,len:F('f-len').value,date:F('f-date').value,time:F('f-time').value,notes:F('f-notes').value,at:new Date().toISOString()};
-  const leads=JSON.parse(localStorage.getItem('star_leads')||'[]');leads.push(lead);
-  localStorage.setItem('star_leads',JSON.stringify(leads));
-  F('form-ok').style.display='block';e.target.reset();
+ e.preventDefault();
+ const lead={name:F('f-name').value,phone:F('f-phone').value,type:F('f-type').value,len:F('f-len').value,date:F('f-date').value,time:F('f-time').value,notes:F('f-notes').value,at:new Date().toISOString()};
+ const leads=JSON.parse(localStorage.getItem('star_leads')||'[]');leads.push(lead);
+ localStorage.setItem('star_leads',JSON.stringify(leads));
+ F('form-ok').style.display='block';e.target.reset();
 });
 
 /* StarBot — Marina-grade agent config: live BlueColumn brain, dynamic
-   ElevenLabs voice (Laura), Simli person avatar, one-voice guard.
-   The guided booking flow stays as a canned pre-hook; knowledge questions
-   go to the live brain first, canned intents are fallback only. */
+ ElevenLabs voice (Laura), Simli person avatar, one-voice guard.
+ The guided booking flow stays as a canned pre-hook; knowledge questions
+ go to the live brain first, canned intents are fallback only. */
 function saveLead(b){const leads=JSON.parse(localStorage.getItem('star_leads')||'[]');leads.push({...b,at:new Date().toISOString()});localStorage.setItem('star_leads',JSON.stringify(leads));}
 const booking={};
 let mode=null;
 window.BOT_CFG={
-  name:'StarBot',
-  business:'Star Jet Ski Rentals',
-  brainPrefix:'Star Jet Ski Rentals customer question: ',
-  faceId:'5fc23ea5-8175-4a82-aaaf-cdd8c88543dc',
-  voiceId:'FGY2WhTYpPnrIDTdsKH5',
-  greeting:"Hey! StarBot here ⭐ I answer live — pricing, requirements, the island run — or say 'book' and I'll get your slot started. Tap 🎤 to talk hands-free, or 🎥 to see me on video.",
-  suggestions:['Book a jet ski','Pricing','What do I need?'],
-  placeholder:'Ask or book…',
-  pre:function(txt){
-    const low=txt.toLowerCase();
-    if(mode==='book-name'){booking.name=txt;mode='book-phone';return{t:"Great, "+txt.split(' ')[0]+" — what's the best phone number for your confirmation text?"};}
-    if(mode==='book-phone'){booking.phone=txt;mode=null;saveLead(booking);return{t:"Locked in ⭐ Here's your request:\n• "+(booking.type||'Jet Ski Ride')+" · "+(booking.len||'1 hour')+"\n• "+(booking.time||'flexible time')+(booking.date?(" · "+booking.date):"")+"\n• "+txt+"\n\nStar confirms slots by text — usually within minutes during open hours (9–6). Want anything else?",opts:["Pricing","What do I need?","No, I'm good"]};}
-    if(mode==='book-type'){booking.type=txt;mode='book-len';return{t:txt+" — solid pick. How long: 1 hour or 2?"};}
-    if(mode==='book-len'){booking.len=txt;mode='book-date';return{t:"Which day works? Type a date (like 'today', 'tomorrow', or 9/15) or say flexible."};}
-    if(mode==='book-date'){booking.date=txt;mode='book-time';return{t:"And what time of day?",opts:["Morning (9–12)","Midday (12–3)","Afternoon (3–6)","Flexible"]};}
-    if(mode==='book-time'){booking.time=txt;mode='book-name';return{t:"Last thing — what's your name?"};}
-    if(low.includes('book')||low.includes('reserve')||low.includes('rent')){mode='book-type';return{t:"Let's do it. What are you riding — Jet Ski Ride, Guided Tour, or Boat Tour?",opts:["Jet Ski Ride","Guided Jet Ski Tour","Boat Tour"]};}
-    return null;
-  },
-  intents:[
-    {k:['price','cost','how much'],t:"Jet ski sessions start at $150/hour — brand-new Yamaha VX Deluxe, safety gear included. Guided tours and boat tours are priced by the slot. Want me to start a booking?"},
-    {k:['need','license','certifi','age','old'],t:"To ride: 16+ with a valid ID. Born on or after Jan 1, 1988? Florida needs a Temporary Boating Certificate — 20 minutes online before you ride. Life jackets included, no experience needed."},
-    {k:['island'],t:"Yes — you can run the skis to the nearby island on open rides. It's the favorite run."},
-    {k:['weather','storm','rain'],t:"Bad Weather Protection: if weather kills your slot, we rebook or refund. You're never stuck."},
-    {k:['speaker','music','bluetooth'],t:"Yep — the Yamahas have Bluetooth speakers. Bring the playlist."},
-    {k:['phone','call','human','talk'],t:"You can reach Star directly at 850.640.6093, daily 9am–6pm. Or leave your number here and they'll text you."},
-    {k:['thank'],t:"Anytime ⭐ See you on the water!"},
-    {k:['hello','hi','hey'],t:"Hey! Ask me anything — pricing, requirements, the island run — or say 'book' and I'll get your slot started."}
-  ],
-  fallback:"I can help with pricing, requirements, or getting you booked. For anything else, Star's crew is at 850.640.6093 daily 9–6."
+ name:'StarBot',
+ business:'Star Jet Ski Rentals',
+ brainPrefix:'Star Jet Ski Rentals customer question: ',
+ faceId:'5fc23ea5-8175-4a82-aaaf-cdd8c88543dc',
+ voiceId:'FGY2WhTYpPnrIDTdsKH5',
+ greeting:"Hey! StarBot here I answer live — pricing, requirements, the island run — or say 'book' and I'll get your slot started. Tap to talk hands-free, or to see me on video.",
+ suggestions:['Book a jet ski','Pricing','What do I need?'],
+ placeholder:'Ask or book…',
+ pre:function(txt){
+ const low=txt.toLowerCase();
+ if(mode==='book-name'){booking.name=txt;mode='book-phone';return{t:"Great, "+txt.split(' ')[0]+" — what's the best phone number for your confirmation text?"};}
+ if(mode==='book-phone'){booking.phone=txt;mode=null;saveLead(booking);return{t:"Locked in Here's your request:\n• "+(booking.type||'Jet Ski Ride')+" · "+(booking.len||'1 hour')+"\n• "+(booking.time||'flexible time')+(booking.date?(" · "+booking.date):)+"\n• "+txt+"\n\nStar confirms slots by text — usually within minutes during open hours (9–6). Want anything else?",opts:["Pricing","What do I need?","No, I'm good"]};}
+ if(mode==='book-type'){booking.type=txt;mode='book-len';return{t:txt+" — solid pick. How long: 1 hour or 2?"};}
+ if(mode==='book-len'){booking.len=txt;mode='book-date';return{t:"Which day works? Type a date (like 'today', 'tomorrow', or 9/15) or say flexible."};}
+ if(mode==='book-date'){booking.date=txt;mode='book-time';return{t:"And what time of day?",opts:["Morning (9–12)","Midday (12–3)","Afternoon (3–6)","Flexible"]};}
+ if(mode==='book-time'){booking.time=txt;mode='book-name';return{t:"Last thing — what's your name?"};}
+ if(low.includes('book')||low.includes('reserve')||low.includes('rent')){mode='book-type';return{t:"Let's do it. What are you riding — Jet Ski Ride, Guided Tour, or Boat Tour?",opts:["Jet Ski Ride","Guided Jet Ski Tour","Boat Tour"]};}
+ return null;
+ },
+ intents:[
+ {k:['price','cost','how much'],t:"Jet ski sessions start at $150/hour — brand-new Yamaha VX Deluxe, safety gear included. Guided tours and boat tours are priced by the slot. Want me to start a booking?"},
+ {k:['need','license','certifi','age','old'],t:"To ride: 16+ with a valid ID. Born on or after Jan 1, 1988? Florida needs a Temporary Boating Certificate — 20 minutes online before you ride. Life jackets included, no experience needed."},
+ {k:['island'],t:"Yes — you can run the skis to the nearby island on open rides. It's the favorite run."},
+ {k:['weather','storm','rain'],t:"Bad Weather Protection: if weather kills your slot, we rebook or refund. You're never stuck."},
+ {k:['speaker','music','bluetooth'],t:"Yep — the Yamahas have Bluetooth speakers. Bring the playlist."},
+ {k:['phone','call','human','talk'],t:"You can reach Star directly at 850.640.6093, daily 9am–6pm. Or leave your number here and they'll text you."},
+ {k:['thank'],t:"Anytime See you on the water!"},
+ {k:['hello','hi','hey'],t:"Hey! Ask me anything — pricing, requirements, the island run — or say 'book' and I'll get your slot started."}
+ ],
+ fallback:"I can help with pricing, requirements, or getting you booked. For anything else, Star's crew is at 850.640.6093 daily 9–6."
 };
 </script>
 <script src="vendor/simli-client.js?v=20260910a"></script>

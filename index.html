@@ -36,7 +36,7 @@ nav.main a.navlink{text-decoration:none;color:var(--ink);font-weight:600;font-si
 .cta.ghost{background:transparent;color:#fff;border:2px solid #fff}
 
 header.hero{background:var(--deep);color:#fff;padding:74px 0 80px;position:relative;overflow:hidden}
-header.hero::before{content:;position:absolute;bottom:-2px;left:0;right:0;height:60px;background:var(--sand);border-radius:50% 50% 0 0/100% 100% 0 0;max-width:140%;width:120%;left:-10%}
+header.hero::before{content:""position:absolute;bottom:-2px;left:0;right:0;height:60px;background:var(--sand);border-radius:50% 50% 0 0/100% 100% 0 0;max-width:140%;width:120%;left:-10%}
 header.hero .wrap{position:relative;z-index:1}
 .hero-chips{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:22px}
 .chip{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);border-radius:6px;padding:5px 14px;font-size:.8rem;font-weight:600}
@@ -73,7 +73,7 @@ section.alt{background:#fff}
 .fleet .card{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.18);color:#fff}
 .fleet .card p,.fleet .card ul{color:#cfe8f0}
 .fleet .card ul{list-style:none;margin-left:0}
-.fleet .card ul li::before{content:;color:var(--sun);font-weight:800}
+.fleet .card ul li::before{content:"✓ "color:var(--sun);font-weight:800}
 
 details{background:#fff;border:1px solid var(--line);border-radius:10px;margin-bottom:10px;padding:16px 20px}
 details summary{font-weight:700;cursor:pointer}
@@ -281,7 +281,7 @@ footer a{color:#cfe8f0;text-decoration:none}
  <div><label for="f-name">Name *</label><input id="f-name" required placeholder="Your name"></div>
  <div><label for="f-phone">Phone *</label><input id="f-phone" type="tel" required placeholder="(850) 555-0123"></div>
  <div><label for="f-type">Ride Type *</label>
- <select id="f-type" required><option value=>Select…</option><option>Jet Ski Ride</option><option>Guided Jet Ski Tour</option><option>Boat Tour</option></select></div>
+ <select id="f-type" required><option value="">Select…</option><option>Jet Ski Ride</option><option>Guided Jet Ski Tour</option><option>Boat Tour</option></select></div>
  <div><label for="f-len">Length</label>
  <select id="f-len"><option>1 hour</option><option>2 hours</option><option>Half day</option><option>Not sure</option></select></div>
  <div><label for="f-date">Date</label><input id="f-date" type="date"></div>
@@ -352,7 +352,7 @@ window.BOT_CFG={
  pre:function(txt){
  const low=txt.toLowerCase();
  if(mode==='book-name'){booking.name=txt;mode='book-phone';return{t:"Great, "+txt.split(' ')[0]+" — what's the best phone number for your confirmation text?"};}
- if(mode==='book-phone'){booking.phone=txt;mode=null;saveLead(booking);return{t:"Locked in Here's your request:\n• "+(booking.type||'Jet Ski Ride')+" · "+(booking.len||'1 hour')+"\n• "+(booking.time||'flexible time')+(booking.date?(" · "+booking.date):)+"\n• "+txt+"\n\nStar confirms slots by text — usually within minutes during open hours (9–6). Want anything else?",opts:["Pricing","What do I need?","No, I'm good"]};}
+ if(mode==='book-phone'){booking.phone=txt;mode=null;saveLead(booking);return{t:"Locked in! Here's your request:\n• "+(booking.type||'Jet Ski Ride')+" · "+(booking.len||'1 hour')+"\n• "+(booking.time||'flexible time')+(booking.date?(" · "+booking.date):"")+"\n• "+txt+"\n\nStar confirms slots by text — usually within minutes during open hours (9–6). Want anything else?",opts:["Pricing","What do I need?","No, I'm good"]};}
  if(mode==='book-type'){booking.type=txt;mode='book-len';return{t:txt+" — solid pick. How long: 1 hour or 2?"};}
  if(mode==='book-len'){booking.len=txt;mode='book-date';return{t:"Which day works? Type a date (like 'today', 'tomorrow', or 9/15) or say flexible."};}
  if(mode==='book-date'){booking.date=txt;mode='book-time';return{t:"And what time of day?",opts:["Morning (9–12)","Midday (12–3)","Afternoon (3–6)","Flexible"]};}

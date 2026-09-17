@@ -106,7 +106,7 @@ footer a{color:#cfe8f0;text-decoration:none}
 .msg.user{background:var(--sea);color:#fff;align-self:flex-end;border-bottom-right-radius:3px}
 .bot-opts{display:flex;flex-wrap:wrap;gap:6px;align-self:flex-start}
 .bot-opts button{background:#fff;border:1.5px solid var(--turq);color:var(--deep);border-radius:999px;padding:5px 12px;font-size:.82rem;font-weight:700;cursor:pointer}
-.bot-input{display:flex;border-top:1px solid var(--line)}
+.bot-input{display:none;border-top:1px solid var(--line)}
 .bot-input input{border:none;border-radius:0;flex:1}
 .bot-input button{background:var(--sea);color:#fff;border:none;padding:0 18px;font-weight:700;cursor:pointer}
 
@@ -208,7 +208,7 @@ footer a{color:#cfe8f0;text-decoration:none}
  <div class="grid4">
  <div class="card"><h3>TR-1 Engine</h3><p>Strong punch off the line, smooth cruise.</p></div>
  <div class="card"><h3>2 Riders</h3><p>Grab your partner in crime. Weight limit applies.</p></div>
- <div class="card"><h3>Island Runs</h3><p>Ride to the nearby island — ask StarBot how.</p></div>
+ <div class="card"><h3>Island Runs</h3><p>Ride to the nearby island — ask Jake how.</p></div>
  <div class="card"><h3>Bluetooth Audio</h3><p>Your playlist on the water. Yes, the skis have speakers.</p></div>
  </div>
  </div>
@@ -246,7 +246,7 @@ footer a{color:#cfe8f0;text-decoration:none}
 <section id="faq">
  <div class="wrap">
  <h2 class="sec">Quick Answers</h2>
- <p class="sub">The stuff everyone asks before riding. StarBot knows the rest.</p>
+ <p class="sub">The stuff everyone asks before riding. Jake knows the rest.</p>
  <div class="grid2">
  <div>
  <details><summary>How old do you have to be to rent?</summary><p>Riders must be 16+ with a valid ID to operate. Younger riders can ride along with an adult.</p></details>
@@ -256,7 +256,7 @@ footer a{color:#cfe8f0;text-decoration:none}
  </div>
  <div>
  <details><summary>What if it storms?</summary><p>Bad Weather Protection: we rebook you or refund you. Your slot isn't lost to a squall.</p></details>
- <details><summary>How many people per ski?</summary><p>Two riders max per jet ski, within the weight limit. Ask StarBot for details when you book.</p></details>
+ <details><summary>How many people per ski?</summary><p>Two riders max per jet ski, within the weight limit. Ask Jake for details when you book.</p></details>
  <details><summary>Do you take walk-ins?</summary><p>When we have skis on the dock, yes — but same-day online booking locks your slot so you're not waiting on the sand.</p></details>
  <details><summary>Can we switch riders mid-session?</summary><p>Yes — come back to the dock and swap riders during your rental.</p></details>
  </div>
@@ -269,7 +269,7 @@ footer a{color:#cfe8f0;text-decoration:none}
  <div class="grid2">
  <div>
  <h2 class="sec">Lock In Your Slot</h2>
- <p class="sub">Same-day bookings welcome. Prefer to talk? Call <b><a href="tel:8506406093" style="color:var(--sea)">850.640.6093</a></b> — or ask StarBot to hold your spot right now.</p>
+ <p class="sub">Same-day bookings welcome. Prefer to talk? Call <b><a href="tel:8506406093" style="color:var(--sea)">850.640.6093</a></b> — or ask Jake to hold your spot right now.</p>
  <div class="card" style="margin-top:18px">
  <h3>Find Us</h3>
  <p><b>Phone:</b> 850.640.6093<br><b>Location:</b> Panama City Beach, FL<br><b>Hours:</b> Daily 9:00am – 6:00pm<br><b>Requirements:</b> 16+ to operate · Valid ID · Boating cert if born after 1/1/1988</p>
@@ -310,14 +310,14 @@ footer a{color:#cfe8f0;text-decoration:none}
  </div>
 </footer>
 
-<!-- StarBot -->
-<button id="bot-fab"><img class="bot-fab-face" src="bot-face.png" alt="StarBot">Ask StarBot</button>
-<div id="bot-panel" role="dialog" aria-label="StarBot chat">
- <div class="bot-head"><img class="bot-avatar" id="bot-avatar" src="bot-face.png" alt="StarBot"><div><b>StarBot</b><small>Bookings & answers · 24/7</small></div><button id="bot-mute" class="bot-ctl" style="margin-left:auto" title="Voice on"></button><button id="bot-mic" class="bot-ctl" title="Talk hands-free"></button><button id="bot-video" class="bot-ctl" title="Live video avatar"></button></div>
+<!-- Jake -->
+<button id="bot-fab"><img class="bot-fab-face" src="bot-face.png" alt="Jake">Ask Jake</button>
+<div id="bot-panel" role="dialog" aria-label="Jake chat">
+ <div class="bot-head"><img class="bot-avatar" id="bot-avatar" src="bot-face.png" alt="Jake"><div><b>Jake</b><small>Bookings & answers · 24/7</small></div><button id="bot-mute" class="bot-ctl" style="margin-left:auto" title="Voice on"></button><button id="bot-mic" class="bot-ctl" title="Talk hands-free"></button><button id="bot-video" class="bot-ctl" title="Live video avatar"></button></div>
  <div id="bot-video-wrap" aria-hidden="true"><span id="bot-video-live"><i></i>LIVE</span><video id="bot-video-el" autoplay playsinline muted></video><audio id="bot-simli-audio" autoplay></audio></div>
  <div id="bot-log"></div>
  <div class="bot-input">
- <input id="bot-in" placeholder="Ask or book…" aria-label="Message StarBot">
+ <input id="bot-in" placeholder="Ask or book…" aria-label="Message Jake">
  <button id="bot-send">Send</button>
  </div>
 </div>
@@ -333,7 +333,7 @@ document.getElementById('lead-form').addEventListener('submit',function(e){
  F('form-ok').style.display='block';e.target.reset();
 });
 
-/* StarBot — Marina-grade agent config: live BlueColumn brain, dynamic
+/* Jake — Marina-grade agent config: live BlueColumn brain, dynamic
  ElevenLabs voice (Laura), Simli person avatar, one-voice guard.
  The guided booking flow stays as a canned pre-hook; knowledge questions
  go to the live brain first, canned intents are fallback only. */
@@ -341,13 +341,13 @@ function saveLead(b){const leads=JSON.parse(localStorage.getItem('star_leads')||
 const booking={};
 let mode=null;
 window.BOT_CFG={
- name:'StarBot',
+ name:'Jake',
  business:'Star Jet Ski Rentals',
  brainPrefix:'Star Jet Ski Rentals customer question: ',
  faceId:'5fc23ea5-8175-4a82-aaaf-cdd8c88543dc',
  voiceId:'FGY2WhTYpPnrIDTdsKH5',
- greeting:"Hey! StarBot here I answer live — pricing, requirements, the island run — or say 'book' and I'll get your slot started. Tap to talk hands-free, or to see me on video.",
- suggestions:['Book a jet ski','Pricing','What do I need?'],
+ greeting:"Hey! Jake here. I answer live — pricing, requirements, the island run — or say 'book' and I'll get your slot started. Tap the mic to talk, or the camera to see me on video.",
+ suggestions:[],
  placeholder:'Ask or book…',
  pre:function(txt){
  const low=txt.toLowerCase();
